@@ -1,6 +1,16 @@
-function Layout() {
+import React from 'react'
+import {Outlet} from "react-router-dom"
+
+import Footer from './Footer'
+import NavBar from './Navbar'
+
+const Layout = () => {
   return (
-    <div>Layout</div>
+    <>
+    <NavBar />
+        <Outlet/>
+    <Footer/>
+    </>
   )
 }
 

@@ -6,8 +6,6 @@ import Footer from '../components/Footer';
 const Home = () => {
   return (
     <div className="container">
-      {/* Navbar */}
-      <Navbar />
 
       {/* Header */}
       <header className="header">
@@ -62,9 +60,6 @@ const Home = () => {
           <div>Testimonial 3</div>
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
