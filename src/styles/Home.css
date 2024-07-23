@@ -1,24 +1,4 @@
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #003366;
-    color: #fff;
-    padding: 10px;
-  }
-  
-  .navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
+
   
   .header {
     text-align: center;
@@ -33,17 +13,127 @@
     padding: 20px;
     background-color: #f9f9f9;
   }
-  
-  .service-grid, .client-grid, .team-grid, .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  footer {
+
+  /*============================== SERVICES SECTION =================================*/
+  .sec-solutions__section {
     text-align: center;
-    background-color: #003366;
-    color: #fff;
-    padding: 10px 0;
+    padding: 2rem;
+    background: linear-gradient(to right, #CED6E0, #FFFFFF);
   }
+  
+  .sec-heading h4,
+  .sec-heading p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .sec-heading h4 {
+    font-size: 28px;
+  }
+  
+  .sec-heading p {
+    font-size: 14px;
+    margin: 0 6rem;
+    margin-bottom: 2rem;
+  }
+
+  .sec-solutions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 0 6rem;
+    background: linear-gradient(to right, #CED6E0, #FFFFFF);
+  }
+  
+  .solution-item {
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    background: transparent;
+    margin: 0.5rem;
+    height: 250px;
+  }
+  .solution-item:hover {
+    transform: scale(1.05);
+    background-color: #223150;
+    color: #FFFFFF;
+    border: 2px solid #ffffff;;
+  }
+  
+  .solution-icon {
+    font-size: 60px;
+    margin-bottom: 1.5rem;
+    background-color: #4263A5;
+    color: #fff; 
+    border-radius: 50%;
+    padding: 5px;
+    display: inline-block;
+  }
+  
+  .solution-item h5 {
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .solution-item p {
+    font-size: 14px;
+    margin-top: 0;
+  }
+
+  .btn-see-more {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #243b68;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-see-more a {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn-see-more .see-icon {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    transition: transform 1s ease;
+  }
+  
+  .btn-see-more:hover .see-icon {
+    transform: rotate(45deg);
+  }
+  
+  .btn-see-more:hover {
+    background-color: #223150;
+  }
+
+  
+  /* Media query for smaller screens */
+  @media only screen and (max-width: 800px) {
+    .sec-solutions {
+      grid-template-columns: 1fr;
+      margin: 0 1rem;
+    }
+  
+    .solution-item {
+      height: 300px;
+    }
+  
+
+  .sec-heading p {
+    margin: 0;
+  }
+  
+  .solution-icon {
+    margin-bottom: 0.3rem; /* Reduce the margin between icon and heading */
+  }
+}
+
+  
   
