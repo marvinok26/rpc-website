@@ -1,15 +1,13 @@
 import React from 'react'
 import TopImages from '../components/TopImages'
 
-function Contact() {
+function Clients() {
   return (
     <>
     <TopImages />
-    <h1>CONTACT US</h1>
-    <div>Form</div>
-    <div>Map</div>
+    <div>OUR CLIENTS</div>
     </>
   )
 }
 
-export default Contact
+export default Clients
