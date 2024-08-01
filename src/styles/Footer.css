@@ -1,0 +1,161 @@
+.footer {
+    background:
+linear-gradient(135deg, #4263a5 21px, #6190ec 22px, #d9ecff2d 24px, transparent 24px, transparent 67px, #d9ecff2d 67px, #d9ecff2d 69px, transparent 69px),
+linear-gradient(225deg, #4263a5 21px, #d9ecff2d 22px, #d9ecff2d 4px, transparent 24px, transparent 67px, #d9ecff2d 67px, #d9ecff2d 69px, transparent 9px)0 64px;
+background-color:#4263a5;
+background-size: 64px 128px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+
+
+.subscribe-section {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.subscribe-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #36538d;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.subscribe-form button:hover {
+    background: #6190ec;
+}
+
+.footer-content {
+    display: flex;
+    justify-content:space-around;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    color: white;
+}
+
+.footer-left, .footer-center, .footer-right {
+    margin: 0 20px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-left .logo-text{
+    margin-bottom: 20px;
+}
+
+.location-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.location-details p {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.location-details .icon {
+    margin-right: 10px;
+    color: black;
+    font-size: 18px;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-media a {
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.footer-center {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 90px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.column h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: black;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.column ul li {
+    margin-bottom: 5px;
+}
+
+.column ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.column ul li a:hover {
+    color: black;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 60px;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-info .icon {
+    margin-right: 10px;
+    color: black;
+}
+
+.contact-info p {
+    margin: 0;
+}
