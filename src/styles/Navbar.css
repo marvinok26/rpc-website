@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 40px; /* Reduced padding for a lower navbar height */
-    background: rgba(0, 0, 0, 0.2); /* Transparent background */
+    background: rgba(0, 0, 0, 0.02); /* Transparent background */
     color: #000;
     position: fixed;
     width: 100%;
