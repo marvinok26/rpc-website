@@ -50,11 +50,11 @@
   
   /* Active link styling */
   .nav-links a.active {
-    color: #80a6f3;
+    color: #000000;
   }
   
   .nav-links a:hover {
-    color: #4263A5;
+    color: #bbc0c9;
   }
   
   /* Dropdown container */
@@ -80,7 +80,7 @@
     top: 50%;
     left: 0;
     background: rgba(0, 0, 0, 0.06); /* Transparent background */
-    color: #000;
+    color: #fff;
     padding: 0 10px;
     border-radius: 5px;
     display: flex;
@@ -100,7 +100,7 @@
   
   /* Dropdown link styling */
   .dropdown-menu a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
     padding: 2px 0;
     display: block;

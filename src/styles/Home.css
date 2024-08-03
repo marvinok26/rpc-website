@@ -51,23 +51,31 @@ a {
     line-height: 1.3em;
 }
 .carousel .list .item .buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 130px);
-    grid-template-rows: 40px;
-    gap: 5px;
+    display: flex;
+    justify-content: left; /* Center-align buttons */
+    gap: 10px; /* Space between buttons */
     margin-top: 20px;
+}
+
+.carousel .list .item .buttons button:hover{
+    background-color: #6190ec;
 }
 .carousel .list .item .buttons button {
     border: none;
+    border-radius: 5px;
     color: #fff;
     background-color: #4263A5;
     letter-spacing: 1.3px;
     font-family: Poppins, sans-serif;
-    width: 140%;
     font-weight: 500;
+    padding: 10px 20px; /* Adjust padding for better button size */
+    display: flex;
+    align-items: center; /* Vertically align text and icon */
+    gap: 10px; /* Space between text and icon */
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 .cons-icon {
-    margin: 5px 0 0 0;
     transition: transform 0.3s ease;
     font-size: 17px;
     font-weight: bold;
