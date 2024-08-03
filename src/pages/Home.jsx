@@ -49,7 +49,6 @@ const Home = () => {
   useEffect(() => {
     const carouselDom = carouselRef.current;
     const sliderDom = sliderRef.current;
-    const timeDom = timeRef.current;
 
     let timeRunning = 3000;
     let timeAutoNext = 7000;
