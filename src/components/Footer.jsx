@@ -24,8 +24,8 @@ const Footer = () => {
             <a href="www.linkedin.com" aria-label="LinkedIn"><FaLinkedinIn /></a>
             <a href="www.youtube.com" aria-label="YouTube"><FaYoutube /></a>
           </div>
-        </div>
-        <div className="link-boxes">
+          </div>
+          <div className="link-boxes">
           <ul className="box">
             <li className="link_name">Company</li>
             <li><a href="/">Home</a></li>
@@ -58,8 +58,9 @@ const Footer = () => {
             <li><input type="button" value="Subscribe" /></li>
           </ul>
         </div>
-      </div>
-      <div className="bottom-details">
+      
+        </div>
+        <div className="bottom-details">
         <div className="bottom_text">
           <span className="copyright_text">
             Copyright © 2024 <a href="/">arvia_codes</a> All rights reserved
@@ -69,7 +70,8 @@ const Footer = () => {
             <a href="/">Terms & condition</a>
           </span>
         </div>
-      </div>
+        </div>
+      
     </footer>
   );
 };

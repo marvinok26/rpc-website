@@ -3,10 +3,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 40px; /* Reduced padding for a lower navbar height */
-    background: rgba(0, 0, 0, 0.02); /* Transparent background */
-    color: #000;
-    position: fixed;
-    width: 100%;
+    background: rgba(0, 0, 0, 0.12); /* Transparent background */
+    position: absolute;
+    width: 100vw;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -17,6 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 3rem;
   }
   
   .logo {
@@ -26,7 +26,7 @@
   
   .logo-text {
     font-size: 14px;
-    color: #000;
+    color: #fff;
   }
   
   /* Navigation links container */
@@ -40,7 +40,7 @@
   
   /* Links styling */
   .nav-links a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
     position: relative;
@@ -50,7 +50,7 @@
   
   /* Active link styling */
   .nav-links a.active {
-    color: #4263A5;
+    color: #80a6f3;
   }
   
   .nav-links a:hover {

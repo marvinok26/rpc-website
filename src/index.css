@@ -9,12 +9,12 @@
 }
 
 body {
+  overflow-x: hidden;
   font-family: "Poppins", sans-serif;
-  background: var(--color-bg);
   font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--color-gray-700);
 }
+
 
 a{
   text-decoration: none;
