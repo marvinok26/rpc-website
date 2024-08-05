@@ -111,6 +111,48 @@ const Home = () => {
         {/* time running */}
         <div className="time" ref={timeRef}></div>
       </div>
+
+      {/* Mission and Values Section */}
+      <div className="mission-values">
+        <h2 className="section-title">Our Mission and Values</h2>
+        <p className="section-paragraph">RPC has been providing services to a variety of clientele which include governments, private sector, corporations, real estate developers, institutions and individuals. We have a team of qualified staff who poses different specialised skill sets that enable us undertake various assignments. Key personnel include urban and regional planners, urban designers, environmental consultants, GIS & CAD experts, cartographers and support staff. All these are professionally qualified and registered by their respective professions.</p>
+        <div className="mission-values-content">
+          <div className="mission-image">
+            <img src={image1} alt="Mission" />
+          </div>
+          <div className="mission-details">
+            <div className="mission-item">
+              <h3>Vision</h3>
+              <p>To be a leader in the provision of physical & land use planning and environment consultancy services in the region.</p>
+            </div>
+            <div className="mission-item">
+              <h3>Mission</h3>
+              <p>To provide leadership in private practice in the provision of physical planning and environment consultancy.</p>
+            </div>
+            <div className="mission-item">
+              <h3>Team Spirit</h3>
+              <p>Striving towards Planned and Sustainable Environments.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Core Values Section */}
+        <div className="core-values">
+          <h2 className="core-values-title">Core Values</h2>
+          <div className="core-values-content">
+            <div className="core-value">INTEGRITY</div>
+            <div className="core-value">LEADERSHIP</div>
+            <div className="core-value">SUSTAINABILITY</div>
+            <div className="core-value">TEAM WORK</div>
+            <div className="core-value">PROFESSIONALISM</div>
+          </div>
+          <div className="core-values-button">
+            <button>See More 
+              <CgArrowTopRight className='cons-icon'/>
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
