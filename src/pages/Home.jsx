@@ -7,6 +7,10 @@ import image2 from '../Assets/Images/buildings/building-8373615_1280.jpg';
 import image3 from '../Assets/Images/buildings/buildings-7848348_1280.jpg';
 import image4 from '../Assets/Images/buildings/city-4667143_1280.jpg';
 import image5 from '../Assets/Images/buildings/city-5156636_1280.jpg';
+import image6 from '../Assets/Images/buildings/crane-houses-7518536_1280.jpg'
+import image7 from '../Assets/Images/buildings/map-11043_1280.jpg'
+import image8 from '../Assets/Images/buildings/nyc-4854718_1280.jpg'
+import image9 from '../Assets/Images/buildings/skyscraper-8366040_1280.jpg'
 
 const carouselData = [
   {
@@ -40,6 +44,35 @@ const carouselData = [
     description: 'We seek to create a platform for best practices, sustainable and attractive environments in land use planning and environmental consultancy.',
   },
 ];
+
+// servicesData.js or within your component file
+export const servicesData = [
+  {
+    id: 1,
+    image: image6,
+    title: 'GIS AND MAPPING',
+    description: 'Creative planning team, Long and short. We strive to deliver',
+  },
+  {
+    id: 2,
+    image: image7,
+    title: 'PHYSICAL & LAND USE PLANNING',
+    description: 'Provides recommendations for policy improvements and adjustments.',
+  },
+  {
+    id: 3,
+    image: image8,
+    title: 'DEVELOPMENT APPLICATIONS',
+    description: 'Expands the allowable activities on a property beyond its current designation.',
+  },
+  {
+    id: 4,
+    image: image9,
+    title: 'ENVIRONMENTAL SERVICES',
+    description: 'Integrates environmental considerations into planning.',
+  },
+];
+
 
 const Home = () => {
   const carouselRef = useRef(null);
@@ -153,6 +186,26 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Services Section */}
+      <div className="our-services">
+      <h2 className="services-title">Our Services</h2>
+      <div className="services-content">
+        {servicesData.map((service) => (
+          <div key={service.id} className="service-item">
+            <img src={service.image} alt={service.title} className="service-image" />
+            <h3 className="service-title">{service.title}</h3>
+            <p className="service-description">{service.description}</p>
+
+            <div className="service-button">
+            <button>Learn More
+            <CgArrowTopRight className='cons-icon'/>
+            </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
     </>
   );
 };
