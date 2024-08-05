@@ -27,7 +27,7 @@ footer .content {
   width: 100%;
   max-width: 1200px; /* Adjusted for consistency */
   margin: auto;
-  padding: 30px 40px 20px; /* Adjusted bottom padding */
+  padding: 20px 40px 20px; /* Adjusted bottom padding */
   box-sizing: border-box;
 }
 
@@ -97,6 +97,7 @@ footer .content .top {
 }
 
 footer .content .link-boxes {
+  padding-top: 20px;
   width: 100%;
   display: flex;
   justify-content: space-between;

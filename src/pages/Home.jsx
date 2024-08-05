@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Home.css';
 import { CgArrowTopRight } from "react-icons/cg";
 
@@ -78,6 +78,8 @@ const Home = () => {
   const carouselRef = useRef(null);
   const sliderRef = useRef(null);
   const timeRef = useRef(null);
+  const countersRef = useRef([]);
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const carouselDom = carouselRef.current;
@@ -119,6 +121,50 @@ const Home = () => {
     };
   }, []);
 
+  useEffect(() => {
+    function updateCounters() {
+      if (isInView) {
+        countersRef.current.forEach((counter) => {
+          function upDate() {
+            const target = Number(counter.getAttribute('data-target'));
+            const count = Number(counter.innerText);
+            const speed = 97;
+            const inc = target / speed;
+            if (count < target) {
+              counter.innerText = Math.floor(inc + count);
+              setTimeout(upDate, 15);
+            } else {
+              counter.innerText = target;
+            }
+          }
+          upDate();
+        });
+      }
+    }
+
+    updateCounters();
+  }, [isInView]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // Trigger when 50% of the section is in view
+    );
+
+    const counterSection = document.querySelector('.counter-wrapper');
+    if (counterSection) {
+      observer.observe(counterSection);
+    }
+
+    return () => {
+      if (counterSection) {
+        observer.unobserve(counterSection);
+      }
+    };
+  }, []);
+
   return (
     <>
       {/* carousel */}
@@ -134,7 +180,7 @@ const Home = () => {
                 <div className="des">{item.description}</div>
                 <div className="buttons">
                   <button>Start Consultation
-                    <CgArrowTopRight className='cons-icon'/>
+                    <CgArrowTopRight className='cons-icon' />
                   </button>
                 </div>
               </div>
@@ -180,32 +226,52 @@ const Home = () => {
             <div className="core-value">PROFESSIONALISM</div>
           </div>
           <div className="core-values-button">
-            <button>See More 
-              <CgArrowTopRight className='cons-icon'/>
+            <button>See More
+              <CgArrowTopRight className='cons-icon' />
             </button>
           </div>
         </div>
       </div>
 
+      {/* Project Counter Section */}
+      <div className="counter-wrapper">
+        <div className="counter">
+          <h1 className="count" data-target="200" ref={(el) => countersRef.current[0] = el}>0</h1>
+          <p>Successful Projects</p>
+        </div>
+        <div className="counter">
+          <h1 className="count" data-target="156" ref={(el) => countersRef.current[1] = el}>0</h1>
+          <p>Active Clients</p>
+        </div>
+        <div className="counter">
+          <h1 className="count" data-target="98" ref={(el) => countersRef.current[2] = el}>0</h1>
+          <p>Completed Projects</p>
+        </div>
+        <div className="counter">
+          <h1 className="count" data-target="6000" ref={(el) => countersRef.current[3] = el}>0</h1>
+          <p>Achievements</p>
+        </div>
+      </div>
+
       {/* Services Section */}
       <div className="our-services">
-      <h2 className="services-title">Our Services</h2>
-      <div className="services-content">
-        {servicesData.map((service) => (
-          <div key={service.id} className="service-item">
-            <img src={service.image} alt={service.title} className="service-image" />
-            <h3 className="service-title">{service.title}</h3>
-            <p className="service-description">{service.description}</p>
+        <h2 className="services-title">Our Services</h2>
+        <div className="services-content">
+          {servicesData.map((service) => (
+            <div key={service.id} className="service-item">
+              <img src={service.image} alt={service.title} className="service-image" />
+              <h3 className="service-title">{service.title}</h3>
+              <p className="service-description">{service.description}</p>
 
-            <div className="service-button">
-            <button>Learn More
-            <CgArrowTopRight className='cons-icon'/>
-            </button>
+              <div className="service-button">
+                <button>Learn More
+                  <CgArrowTopRight className='cons-icon' />
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
     </>
   );
 };
