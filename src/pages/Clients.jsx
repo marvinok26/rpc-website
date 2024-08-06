@@ -1,10 +1,12 @@
 import React from 'react'
-import TopImages from '../components/TopImages'
+
+import ImageRow from '../components/Images'
+
 
 function Clients() {
   return (
     <>
-    <TopImages />
+    <ImageRow />
     <div>OUR CLIENTS</div>
     </>
   )

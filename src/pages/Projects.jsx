@@ -1,8 +1,10 @@
+import ImageRow from "../components/Images"
 
 function Projects() {
   return (
     <>
-    <div>PROJECTS</div>
+    <ImageRow />
+    <h3>PROJECTS</h3>
     </>
   )
 }

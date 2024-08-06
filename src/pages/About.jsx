@@ -1,13 +1,15 @@
 import React from 'react'
-import TopImages from '../components/TopImages'
+import ImageRow from '../components/Images'
+
 
 function About() {
   return (
     <>
-    <TopImages />
+    <ImageRow />
     <h1>ABOUT US</h1>
     <div>Client</div>
     <div>Mission Vision Team-Spirit</div>
+
     </>
   )
 }

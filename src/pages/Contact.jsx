@@ -1,10 +1,11 @@
 import React from 'react'
-import TopImages from '../components/TopImages'
+
+import ImageRow from '../components/Images'
 
 function Contact() {
   return (
     <>
-    <TopImages />
+    <ImageRow />
     <h1>CONTACT US</h1>
     <div>Form</div>
     <div>Map</div>

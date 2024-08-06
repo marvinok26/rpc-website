@@ -1,0 +1,20 @@
+.image-row {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0;
+    margin-top: 5.2rem;
+    gap: 0; /* Ensure there's no gap between images */
+    position: relative; /* Ensure it's positioned correctly below the navbar */
+    top: 0; /* Ensure it starts at the top, below the navbar */
+    z-index: 1; /* Ensure it's above other content but below the navbar */
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    flex: 1;
+    border: none;
+    display: inline-block;
+}
