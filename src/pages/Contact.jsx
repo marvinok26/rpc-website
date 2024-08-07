@@ -1,5 +1,4 @@
 import React from 'react';
-
 import '../styles/Contact.css';
 import ImageRow from '../components/Images';
 
@@ -46,7 +45,16 @@ const Contact = () => {
             <p>4th Avenue Towers, along 4th Ngong Avenue (off Bishop/Ngong road)</p>
             <p>Upper Hill, Nairobi</p>
             <p>(Suite 16.4, 16th Floor)</p>
-            <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=4th%20Avenue%20Towers,%20along%204th%20Ngong%20Avenue+(My%20Business%20Real%20Plan%20Consultants%20LtdName)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps devices</a></iframe>
+            <iframe
+              width="100%"
+              height="400"
+              frameBorder="0"
+              scrolling="no"
+              marginHeight="0"
+              marginWidth="0"
+              src="https://maps.google.com/maps?q=4th%20Avenue%20Towers,%20along%204th%20Ngong%20Avenue,%20Upper%20Hill,%20Nairobi&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+              title="Google Maps"
+            ></iframe>
           </div>
         </div>
       </div>
