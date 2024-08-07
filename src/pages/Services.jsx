@@ -60,14 +60,14 @@ const Services = () => {
     <>
       <ImageRow />
       <div className="services-section">
-        <h2 className="services-heading">Our Services</h2>
-        <div className="services-container">
+        <h2 className="services-head">Our Services</h2>
+        <div className="services-contain">
           {serviceData.map((item) => (
-            <div key={item.id} className="service-item">
+            <div key={item.id} className="service-it">
               <img src={item.imageSrc} alt={item.title} className="service-image" />
-              <div className="service-details">
-                <h3 className="service-title">{item.title}</h3>
-                <ul className="service-list">
+              <div className="service-det">
+                <h3 className="service-ti">{item.title}</h3>
+                <ul className="service-li">
                   {item.services.map((service, index) => (
                     <li key={index} className="service">
                       {service}
