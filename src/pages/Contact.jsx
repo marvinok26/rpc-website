@@ -1,14 +1,7 @@
 import React from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
 import '../styles/Contact.css';
 import ImageRow from '../components/Images';
-
-const googleMapsApiKey = 'YOUR_GOOGLE_MAPS_API_KEY'; // Ensure you use your actual Google Maps API key
-
-const mapCenter = {
-  lat: -1.2921, // Replace with the latitude of the company's office
-  lng: 36.8219, // Replace with the longitude of the company's office
-};
 
 const Contact = () => {
   const handleSubmit = (event) => {
@@ -53,15 +46,7 @@ const Contact = () => {
             <p>4th Avenue Towers, along 4th Ngong Avenue (off Bishop/Ngong road)</p>
             <p>Upper Hill, Nairobi</p>
             <p>(Suite 16.4, 16th Floor)</p>
-            <LoadScript googleMapsApiKey={googleMapsApiKey}>
-              <GoogleMap
-                mapContainerStyle={{ width: '100%', height: '100%' }}
-                center={mapCenter}
-                zoom={15}
-              >
-                <Marker position={mapCenter} />
-              </GoogleMap>
-            </LoadScript>
+            <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=4th%20Avenue%20Towers,%20along%204th%20Ngong%20Avenue+(My%20Business%20Real%20Plan%20Consultants%20LtdName)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps devices</a></iframe>
           </div>
         </div>
       </div>
