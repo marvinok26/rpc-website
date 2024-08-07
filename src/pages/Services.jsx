@@ -61,7 +61,7 @@ const Services = () => {
     <>
       <ImageRow />
       <div className="services-section">
-        <h2 className="services-head">Our Services</h2>
+        <h2 className="services-head">OUR SERVICES</h2>
         <div className="services-contain">
           {serviceData.map((item) => (
             <div key={item.id} className="service-it">

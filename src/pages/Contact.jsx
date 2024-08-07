@@ -12,7 +12,7 @@ const Contact = () => {
     <>
       <ImageRow />
       <div className="contact-container">
-        <h1 className="contact-heading">Contact Us</h1>
+        <h1 className="contact-heading">CONTACT US</h1>
         <div className="contact-content">
           <div className="contact-details">
             <h2>Contact Details</h2>

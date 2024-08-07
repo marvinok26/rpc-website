@@ -83,7 +83,7 @@ a {
     font-size: 17px;
     font-weight: bold;
 }
-.buttons:hover .cons-icon {
+.carousel .list .item .buttons button:hover .cons-icon {
     transform: rotate(45deg);
 }
 .carousel .list .item .buttons button:nth-child(2) {

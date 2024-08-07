@@ -96,6 +96,26 @@ footer .content .top {
   background: #ff0000;
 }
 
+.content .top .media-icons a:nth-child(1):hover {
+  background: linear-gradient(to bottom right, #335a8d, #1c2e5a);
+}
+
+.content .top .media-icons a:nth-child(2):hover {
+  background: linear-gradient(to bottom right, #0f7cba, #0a4c7b);
+}
+
+.content .top .media-icons a:nth-child(3):hover {
+  background: linear-gradient(to bottom right, #b9275b, #8e1e45);
+}
+
+.content .top .media-icons a:nth-child(4):hover {
+  background: linear-gradient(to bottom right, #005a8d, #003c6c);
+}
+
+.content .top .media-icons a:nth-child(5):hover {
+  background: linear-gradient(to bottom right, #cc0000, #990000);
+}
+
 footer .content .link-boxes {
   padding-top: 20px;
   width: 100%;
