@@ -11,6 +11,7 @@ import image6 from '../Assets/Images/buildings/crane-houses-7518536_1280.jpg'
 import image7 from '../Assets/Images/buildings/map-11043_1280.jpg'
 import image8 from '../Assets/Images/buildings/nyc-4854718_1280.jpg'
 import image9 from '../Assets/Images/buildings/skyscraper-8366040_1280.jpg'
+import { Link } from 'react-router-dom';
 
 const carouselData = [
   {
@@ -264,8 +265,8 @@ const Home = () => {
               <p className="service-description">{service.description}</p>
 
               <div className="service-button">
-                <button>Learn More
-                  <CgArrowTopRight className='cons-icon' />
+                <button><Link to="/services"> Learn More
+                  <CgArrowTopRight className='cons-icon' /></Link>
                 </button>
               </div>
             </div>
