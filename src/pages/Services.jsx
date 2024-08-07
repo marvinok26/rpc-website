@@ -64,7 +64,7 @@ const Services = () => {
         <div className="services-contain">
           {serviceData.map((item) => (
             <div key={item.id} className="service-it">
-              <img src={item.imageSrc} alt={item.title} className="service-image" />
+              <img src={item.imageSrc} alt={item.title} className="service-im" />
               <div className="service-det">
                 <h3 className="service-ti">{item.title}</h3>
                 <ul className="service-li">

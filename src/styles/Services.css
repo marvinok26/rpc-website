@@ -25,12 +25,13 @@
   box-sizing: border-box;
 }
 
-.service-image {
+.service-im {
   height: 400px;
   width: 500px;
   object-fit: cover;
   margin-right: 2rem;
   margin-left: 5rem;
+  border-radius: 5px;
 }
 
 .service-det {
