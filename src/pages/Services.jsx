@@ -2,6 +2,7 @@ import React from 'react';
 
 import ImageRow from '../components/Images';
 import '../styles/Services.css';
+import { GiConfirmed } from "react-icons/gi";
 
 import image1 from "../Assets/Images/buildings/building-102840_1280.jpg"
 import image2 from "../Assets/Images/buildings/crane-houses-7518536_1280.jpg"
@@ -69,7 +70,7 @@ const Services = () => {
                 <h3 className="service-ti">{item.title}</h3>
                 <ul className="service-li">
                   {item.services.map((service, index) => (
-                    <li key={index} className="service">
+                    <li key={index} className="service"><GiConfirmed className="tick-icon"/>
                       {service}
                       {index === 5 && item.sublist && (
                         <ul className="sublist">
