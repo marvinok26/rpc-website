@@ -1,0 +1,53 @@
+.client-heading {
+    font-size: 2.5rem;
+    margin: 2rem 2rem;
+    color: #4263A5;
+    text-align: center;
+  }
+.clients-page {
+    padding: 20px;
+  }
+  
+  .category-section {
+    margin-bottom: 40px;
+  }
+  
+  .category-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .image-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows logos to wrap to the next line */
+    justify-content: center; /* Center logos horizontally */
+    align-items: center; /* Center logos vertically */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .image-wrapper {
+    flex: 0 0 auto;
+    animation: slideIn 3s forwards; /* Increased duration for slide-in effect */
+    margin: 16px; /* Adds spacing between logos */
+  }
+  
+  .client-logo {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+  }
+  
+  .client-logo:hover {
+    transform: scale(1.1); /* Bulging effect on hover */
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
