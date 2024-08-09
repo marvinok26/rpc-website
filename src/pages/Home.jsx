@@ -170,7 +170,7 @@ const Home = () => {
               <img src={service.image} alt={service.title} className="service-image"/>
               <div className="service-details">
                 <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p> 
+                <p className="service-description">{service.description}</p>
 
                 <div className="service-button">
               <Link to="/services"><button> Learn More

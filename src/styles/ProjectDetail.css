@@ -1,0 +1,23 @@
+.project-detail {
+    padding: 20px;
+    margin-top: 5rem;
+  }
+  
+  .images-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .detail-image {
+    width: calc(50% - 10px); /* Adjust width for responsive layout */
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .description {
+    margin-top: 20px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
