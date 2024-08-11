@@ -45,7 +45,7 @@ const Contact = () => {
             <p>4th Avenue Towers, along 4th Ngong Avenue (off Bishop/Ngong road)</p>
             <p>Upper Hill, Nairobi</p>
             <p>(Suite 16.4, 16th Floor)</p>
-            <iframe
+            <iframe className='iframe'
               width="100%"
               height="400"
               frameBorder="0"
