@@ -635,4 +635,94 @@ a {
   .service-button button:hover .cons-icon {
     transform: rotate(45deg);
   }
+
+
+/* Media Query for screens smaller than 800px CAROUSEL*/
+@media screen and (max-width: 800px) {
+  .carousel {
+      height: 500px; /* Adjust carousel height */
+      margin-top: -30px; /* Adjust margin for better positioning */
+  }
   
+  .carousel .list .item .content {
+      width: 80%; /* Reduce width of content */
+      height: 300px; /* Reduce height of content */
+      padding-right: 10%; /* Adjust padding */
+      top: 30%; /* Adjust vertical positioning */
+  }
+  
+  .carousel .list .item .company {
+      font-size: 10px; /* Reduce font size */
+      width: 60%; /* Adjust width */
+      padding: 2px 1px; /* Adjust padding */
+  }
+  
+  .carousel .list .item .title {
+      font-size: 2em; /* Reduce font size */
+      line-height: 1.2em; /* Adjust line-height */
+  }
+  
+  .carousel .list .item .buttons button {
+      padding: 8px 15px; /* Adjust button padding */
+      font-size: 0.7em; /* Reduce font size */
+  }
+  
+  .carousel .list .item .buttons button .cons-icon {
+      font-size: 14px; /* Reduce icon size */
+  }
+  
+  .thumbnail {
+      bottom: 20px; /* Adjust bottom position */
+      gap: 10px; /* Reduce gap */
+  }
+  
+  .thumbnail .item {
+      width: 120px; /* Reduce width */
+      height: 170px; /* Reduce height */
+  }
+  
+  .thumbnail .item .content {
+      bottom: 5px; /* Adjust bottom position */
+  }
+  
+  .thumbnail .item .content .title {
+      font-size: 0.8em; /* Reduce font size */
+  }
+  
+  .thumbnail .item .content .des {
+      font-size: 0.7em; /* Reduce font size */
+  }
+}
+
+
+
+  
+
+
+/* Media Query for screens smaller than 800px :SERVICES SECTION*/
+@media (max-width: 800px) {
+  .services-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      gap: 20px; /* Space between items */
+  }
+
+  .service-item {
+      max-width: none; /* Remove previous max-width */
+      width: 100%; /* Ensure the item takes full width of its grid cell */
+      box-sizing: border-box; /* Include padding and border in the width */
+  }
+
+  .service-image {
+      width: 200px; /* Reduce image width */
+      height: 150px; /* Reduce image height */
+  }
+
+  .service-title {
+      font-size: 0.7em; /* Adjust font size */
+  }
+
+  .service-description {
+      font-size: 0.7em; /* Adjust font size */
+  }
+}
