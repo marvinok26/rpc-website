@@ -26,7 +26,7 @@ const Projects = () => {
         <Link to={`/project/${project.id}`} key={project.id} className="project-item">
           <img src={project.src} alt={project.title} className="project-image" />
           <div className="overlay">
-            <div className="title">{project.title}</div>
+            <div className="pro-title">{project.title}</div>
           </div>
         </Link>
       ))}
