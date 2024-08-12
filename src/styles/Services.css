@@ -17,7 +17,7 @@
 .service-it {
   display: flex;
   flex-direction: row;
-  align-items: flex-start; /* Aligns items at the top */
+  align-items: flex-start;
   margin-bottom: 20px;
   width: 100%;
   max-width: 1200px;
@@ -53,4 +53,45 @@
 .service-li li {
   margin-bottom: 10px;
   color: #666;
+}
+
+
+@media (max-width: 800px) {
+  .services-head {
+    font-size: 1.8rem; /* Reduced font size */
+    margin: 1.5rem 0; /* Adjusted margin */
+  }
+
+  .services-contain {
+    padding: 15px; /* Reduced padding */
+  }
+
+  .service-it {
+    flex-direction: column; /* Stack items vertically */
+    align-items: left; /* Center align items */
+    padding: 0; /* Remove padding */
+    margin-bottom: 15px; /* Adjusted margin */
+  }
+
+  .service-im {
+    height: 300px; /* Reduced height */
+    width: 98%; /* Full width */
+    margin-right: 0; /* Remove right margin */
+    margin-left: 0; /* Remove left margin */
+    border-radius: 5px;
+  }
+
+  .service-det {
+    align-items: center; /* Center align text */
+    text-align: left; /* Center align text */
+  }
+
+  .service-ti {
+    margin-top: 1rem;
+    font-size: 0.9rem; /* Reduced font size */
+  }
+
+  .service-li li {
+    margin-bottom: 8px;
+  }
 }

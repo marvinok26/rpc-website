@@ -237,7 +237,7 @@ footer .bottom-details .bottom_text {
   margin-right: 10px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   footer .content .link-boxes {
     flex-wrap: wrap;
   }
