@@ -19,27 +19,26 @@
   
   .image-container {
     display: flex;
-    flex-wrap: wrap; /* Allows logos to wrap to the next line */
-    justify-content: center; /* Center logos horizontally */
-    align-items: center; /* Center logos vertically */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     position: relative;
   }
   
   .image-wrapper {
     flex: 0 0 auto;
-    animation: slideIn 3s forwards; /* Increased duration for slide-in effect */
-    margin: 16px; /* Adds spacing between logos */
+    animation: slideIn 3s forwards;
   }
   
   .client-logo {
     width: 100px;
     height: auto;
-    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+    transition: transform 0.3s ease-in-out; 
   }
   
   .client-logo:hover {
-    transform: scale(1.1); /* Bulging effect on hover */
+    transform: scale(1.1); 
   }
   
   @keyframes slideIn {
@@ -48,6 +47,45 @@
     }
     to {
       transform: translateX(0);
+    }
+  }
+  
+
+  @media (max-width: 800px) {
+    .client-heading {
+      font-size: 2rem;
+      margin: 1rem;
+    }
+    
+    .clients-page {
+      padding: 10px;
+    }
+    
+    .category-section {
+      margin-bottom: 20px;
+    }
+    
+    .category-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .image-container {
+      flex-direction: row; 
+      align-items: center; 
+    }
+    
+    .image-wrapper {
+      margin: 8px;
+      animation: slideIn 4s forwards;
+    }
+    
+    .client-logo {
+      width: 80px;
+    }
+    
+    .client-logo:hover {
+      transform: scale(1.05);
     }
   }
   
