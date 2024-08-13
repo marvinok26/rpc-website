@@ -1,0 +1,124 @@
+/* body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #fffaea;
+  } */
+  
+  /* Container for the error page */
+  .contain {
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    text-align: center; /* Center text and button inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Style for the SVG */
+  .contain svg {
+    width: 80%; /* Adjust width as needed */
+    max-width: 300px; /* Limit the maximum width */
+    margin-bottom: 1rem; /* Space between SVG and text */
+  }
+  .contain svg .beer {
+    -webkit-animation-name: empty;
+            animation-name: empty;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-duration: 4s;
+            animation-duration: 4s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    fill: #F9CF68;
+  }
+  
+  @-webkit-keyframes empty {
+    0% {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    30% {
+      -webkit-clip-path: polygon(0 16%, 100% 12%, 100% 100%, 0% 100%);
+              clip-path: polygon(0 16%, 100% 12%, 100% 100%, 0% 100%);
+    }
+    50% {
+      -webkit-clip-path: polygon(0 40%, 100% 44%, 100% 100%, 0% 100%);
+              clip-path: polygon(0 40%, 100% 44%, 100% 100%, 0% 100%);
+    }
+    70% {
+      -webkit-clip-path: polygon(0 69%, 100% 66%, 100% 100%, 0% 100%);
+              clip-path: polygon(0 69%, 100% 66%, 100% 100%, 0% 100%);
+    }
+    100% {
+      -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+              clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    }
+  }
+  
+  @keyframes empty {
+    0% {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    30% {
+      -webkit-clip-path: polygon(0 16%, 100% 12%, 100% 100%, 0% 100%);
+              clip-path: polygon(0 16%, 100% 12%, 100% 100%, 0% 100%);
+    }
+    50% {
+      -webkit-clip-path: polygon(0 40%, 100% 44%, 100% 100%, 0% 100%);
+              clip-path: polygon(0 40%, 100% 44%, 100% 100%, 0% 100%);
+    }
+    70% {
+      -webkit-clip-path: polygon(0 69%, 100% 66%, 100% 100%, 0% 100%);
+              clip-path: polygon(0 69%, 100% 66%, 100% 100%, 0% 100%);
+    }
+    100% {
+      -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+              clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    }
+  }
+
+  
+/* Style for the text section */
+.text{
+    margin-left: -4rem;
+}
+.text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .text p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  /* Style for the button */
+  .text button {
+    background-color: #4263a5; /* Dark blue background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .text button:hover {
+    background-color: #354a7d; /* Slightly darker blue */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+  
+  .text button a {
+    color: #fff; /* White text for the link */
+    text-decoration: none;
+  }
