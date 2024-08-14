@@ -585,18 +585,17 @@ a {
   }
   
   .service-title {
-    font-size: 0.8em;
+    font-size: 1.1em;
     margin: 15px 0 10px;
     color: #4263A5;
   }
   
   .service-description {
-    font-size: 0.79em;
+    font-size: 1rem;
     margin-bottom: 10px;
   }
   
   .service-button {
-    
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -604,6 +603,8 @@ a {
   }
 
   .service-button button {
+    position: absolute;
+    bottom: 0px;
     background-color: #4263A5;
     color: #fff;
     border: none;
@@ -618,6 +619,7 @@ a {
     align-items: center;
     gap: 5px;
     transition: background 0.3s ease;
+    margin-left: -60px;
   }
   
 

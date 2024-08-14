@@ -4,9 +4,9 @@ import ImageRow from '../components/Images';
 import '../styles/Services.css';
 import { GiConfirmed } from "react-icons/gi";
 
-import image1 from "../Assets/Images/buildings/building-102840_1280.jpg"
-import image2 from "../Assets/Images/buildings/crane-houses-7518536_1280.jpg"
-import image3 from "../Assets/Images/buildings/skyscraper-8373617_1280.jpg"
+import image1 from "../Assets/Images/buildings/landuse.PNG"
+import image2 from "../Assets/Images/buildings/development.PNG"
+import image3 from "../Assets/Images/buildings/gis.PNG"
 
 // Data for services
 const serviceData = [
@@ -15,14 +15,19 @@ const serviceData = [
     imageSrc: image1,
     title: 'PHYSICAL & LAND USE PLANNING',
     services: [
-      'Site Analysis and Assessment',
-      'Land Use Planning',
-      'Zoning and Regulatory Compliance',
-      'Environmental Impact Studies',
-      'Urban and Regional Planning',
-      'Strategic Development Plans',
-      'Infrastructure Planning',
-      'Master Planning'
+      'Policy Development',
+      'Regional Physical and Land use Plans',
+      'Inter-Regional Physical and Land use Plans',
+      'County Spatial Plans',
+      'Local Physical and Land Use development Plans',
+      'Integrated Strategic Urban Development Plans ',
+      'Urban and Municipal Plans',
+      'Urban Renewal Plans',
+      'Master Plans ',
+      'Slum Upgrading Programmes ',
+      'Subject Plans ',
+      'Street and physical address systems',
+      'Planning and Development Studies and Related research'
     ],
     sublist: null,
   },
@@ -31,12 +36,12 @@ const serviceData = [
     imageSrc: image2,
     title: 'DEVELOPMENT SERVICES',
     services: [
-      'Project Feasibility Studies',
-      'Development Approvals',
-      'Planning and Design Consultation',
-      'Building Permits',
-      'Development Proposals',
-      'Construction Management'
+      'Project feasibility studies and business case',
+      'Renewal & Extensions of Lease',
+      'Change & extension of Use',
+      'Master plans ',
+      'Amalgamation & Subdivision plans ',
+      'Outdoor Advertisements'
     ],
     sublist: null,
   },
@@ -45,12 +50,12 @@ const serviceData = [
     imageSrc: image3,
     title: 'ENVIRONMENTAL SERVICES',
     services: [
-      'Environmental Assessments',
-      'Sustainability Consulting',
-      'Waste Management Planning',
-      'Environmental Compliance',
-      'Pollution Control',
-      'Biodiversity Conservation'
+      'Strategic Environmental Assessment (SEA)',
+      'Environmental Impact assessment (EIA)',
+      'Environmental Audits (EA)',
+      'Environmental related Studies and research',
+      'Resettlement Action Plans (RAP)',
+      'Electro Magnetic Field Testing and measurements'
     ],
     sublist: null,
   }
