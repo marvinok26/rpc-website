@@ -1,143 +1,217 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 40px; /* Reduced padding for a lower navbar height */
-    background: rgba(0, 0, 0, 0.12); /* Transparent background */
-    position: absolute;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    height: 85px;
-  }
-  
-  .logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 3rem;
-  }
-  
-  .logo {
-    height: 60px;
-    width: 65px;
-  }
-  
-  .logo-text {
-    font-size: 14px;
-    color: #fff;
-  }
-  
-  /* Navigation links container */
-  .nav-links {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  /* Links styling */
-  .nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Active link styling */
-  .nav-links a.active {
-    color: #000000;
-  }
-  
-  .nav-links a:hover {
-    color: #bbc0c9;
-  }
-  
-  /* Dropdown container */
-  .dropdown {
-    position: relative;
-  }
-  
-  /* Dropdown icon styling */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  background: rgba(0, 0, 0, 0.12);
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 85px;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 3rem;
+}
+
+.logo {
+  height: 60px;
+  width: 65px;
+}
+
+.logo-text {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Links styling */
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Active link styling */
+.nav-links a.active {
+  color: #000000;
+}
+
+.nav-links a:hover {
+  color: #bbc0c9;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown icon styling */
 .dropdown-icon {
-        margin: 5px 0 0 0;
-        transition: transform 0.3s ease;
-        font-size: 17px;
-        font-weight: bold;
-    }
-      
-      /* Rotate the icon on hover */
+  margin: 5px 0 0 0;
+  transition: transform 0.3s ease;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* Rotate the icon on hover */
 .dropdown:hover .dropdown-icon {
-        transform: rotate(90deg);
-    }
-  /* Dropdown menu styling */
-  .dropdown-menu {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    background: rgba(0, 0, 0, 0.06); /* Transparent background */
-    color: #fff;
-    padding: 0 10px;
-    border-radius: 5px;
-    display: flex;
+  transform: rotate(90deg);
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.06);
+  color: #fff;
+  padding: 0 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.9s ease;
+  z-index: 1000;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(10px);
+}
+
+/* Dropdown link styling */
+.dropdown-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 0;
+  display: block;
+}
+
+/* Schedule button styling */
+.schedule-button {
+  background: #4263A5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.schedule-button:hover {
+  background: #6190ec;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
     flex-direction: column;
-    opacity: 0; /* Hidden by default */
-    visibility: hidden; /* Hidden by default */
-    transition: opacity 0.3s ease, visibility 0.9s ease;
-    z-index: 1000;
+    gap: 10px;
+    align-items: flex-start;
   }
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-menu {
+
+  .dropdown-menu {
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
     opacity: 1;
     visibility: visible;
-    transform: translateY(10px);
+    transform: none;
+  }
+}
+
+/* Media query for Android devices */
+@media screen and (max-width: 800px) {
+  .navbar {
+    position: relative;
+  }
+
+  .navbar img {
+    margin-left: 1rem;
   }
   
-  /* Dropdown link styling */
-  .dropdown-menu a {
-    color: #fff;
-    text-decoration: none;
-    padding: 2px 0;
-    display: block;
+
+  .nav-links {
+    color: #000000;
+    position: absolute;
+    top: 3.5rem;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    z-index: 3;
+    margin-right: 0.2rem;
   }
-  
-  /* Schedule button styling */
-  .schedule-button {
-    background: #4263A5; /* Button color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s ease;
+
+  .nav-links li {
+    list-style-type: none;
+    width: 100%;
+    box-shadow: -2rem 4rem 4rem rgba(0, 0, 0, 0.26);
+    animation: dropDown 500ms ease forwards;
+    opacity: 0;
+    transform: rotateX(90deg);
+    transform-origin: top;
   }
-  
-  .schedule-button:hover {
-    background: #6190ec; /* Darker shade on hover */
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .nav-links {
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-start;
-    }
-  
-    .dropdown-menu {
-      position: static;
-      background: transparent;
-      border: none;
-      box-shadow: none;
+
+  @keyframes dropDown {
+    to {
       opacity: 1;
-      visibility: visible;
-      transform: none;
+      transform: rotate(0);
     }
   }
-  
+
+  .nav-links li:nth-child(2) {
+    animation-delay: 200ms;
+  }
+
+  .nav-links li:nth-child(3) {
+    animation-delay: 400ms;
+  }
+
+  .nav-links li:nth-child(4) {
+    animation-delay: 800ms;
+  }
+
+  .nav-links li:nth-child(5) {
+    animation-delay: 900ms;
+  }
+
+  .nav-links a {
+    margin-top: -1.19rem;
+    text-decoration: none;
+    display: block;
+    color: #000000;
+    background: #ffffff33;
+    padding: 0.25rem 2.5rem;
+  }
+
+  .nav__toggle-btn {
+    color: #ffffff;
+    margin-left: 16rem;
+    display: inline-block;
+    background: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
