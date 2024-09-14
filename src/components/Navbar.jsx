@@ -104,11 +104,11 @@ const Navbar = () => {
           >
             Contact
           </Link></li>
-          {/* Render the schedule button only on desktop view */}
-          {!isMobileView && (
-            <button className="schedule-button">Schedule Consultation</button>
-          )}
         </ul>
+      )}
+
+      {!isMobileView && (
+        <button className="schedule-button">Schedule Consultation</button>
       )}
 
       {isMobileView && (
