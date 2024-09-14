@@ -4,11 +4,11 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { FaBars } from 'react-icons/fa';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
-import '../styles/Navbar.css';
 import logo from '../Assets/Images/Logo/RPC_LTD_LOGO-removebg-preview.png';
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownTimeout, setDropdownTimeout] = useState(null);
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -41,41 +41,60 @@ const Navbar = () => {
     }
   };
 
+  const handleMouseEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout); // Clear any scheduled closing
+    }
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setDropdownOpen(false);
+    }, 300); // Delay the dropdown closing by 300ms
+
+    setDropdownTimeout(timeout);
+  };
+
   return (
-    <nav className="navbar">
-      <Link to="/" className="logo-container" onClick={closeNavHandler}>
-        <img src={logo} alt="Logo" className="logo" />
-        <h5 className="logo-text">Real Plan Consultants Ltd</h5>
+    <nav className="flex items-center justify-between p-2.5 sm:p-10 bg-black/20 absolute w-screen top-0 left-0 z-[1000] h-[85px]">
+      <Link to="/" className="flex flex-col items-center" onClick={closeNavHandler}>
+        <img src={logo} alt="Logo" className="h-[60px] w-[65px]" />
+        <h5 className="text-[14px] text-white">Real Plan Consultants Ltd</h5>
       </Link>
 
       {isNavShowing && (
-        <ul className="nav-links">
+        <ul className="flex-grow flex justify-center gap-5 list-none">
           <li><Link
             to="/"
-            className={currentPath === '/' ? 'active' : ''}
+            className={`${currentPath === '/' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
             onClick={closeNavHandler}
           >
             Home
           </Link></li>
-          <div
-            className="dropdown"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+
+          {/* Dropdown section */}
+          <div 
+            className="relative" 
+            onMouseEnter={handleMouseEnter} 
+            onMouseLeave={handleMouseLeave}
           >
-            <li><Link
-              to="/about"
-              className={currentPath === '/about' ? 'active' : ''}
-              aria-expanded={isDropdownOpen}
-              aria-haspopup="true"
-              onClick={closeNavHandler}
-            >
-              About Us <span className="dropdown-icon"><MdKeyboardArrowRight /></span>
-            </Link></li>
+            <li>
+              <Link
+                to="/about"
+                className={`${currentPath === '/about' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
+                aria-expanded={isDropdownOpen}
+                aria-haspopup="true"
+                onClick={closeNavHandler}
+              >
+                About Us <span className="ml-1 transition-transform duration-300 text-[17px] font-bold"><MdKeyboardArrowRight className={`${isDropdownOpen ? 'rotate-90' : ''}`} /></span>
+              </Link>
+            </li>
             {isDropdownOpen && (
-              <div className="dropdown-menu">
+              <div className="absolute left-0 mt-2 bg-black/10 text-white p-2 rounded-md z-[1000]">
                 <li><Link
                   to="/clients"
-                  className={currentPath === '/clients' ? 'active' : ''}
+                  className={`${currentPath === '/clients' ? 'text-black' : 'text-white'} font-bold hover:text-gray-400`}
                   onClick={closeNavHandler}
                 >
                   Clients
@@ -83,23 +102,24 @@ const Navbar = () => {
               </div>
             )}
           </div>
+
           <li><Link
             to="/services"
-            className={currentPath === '/services' ? 'active' : ''}
+            className={`${currentPath === '/services' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
             onClick={closeNavHandler}
           >
             Services
           </Link></li>
           <li><Link
             to="/projects"
-            className={currentPath === '/projects' ? 'active' : ''}
+            className={`${currentPath === '/projects' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
             onClick={closeNavHandler}
           >
             Projects
           </Link></li>
           <li><Link
             to="/contact"
-            className={currentPath === '/contact' ? 'active' : ''}
+            className={`${currentPath === '/contact' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
             onClick={closeNavHandler}
           >
             Contact
@@ -108,7 +128,9 @@ const Navbar = () => {
       )}
 
       {!isMobileView && (
-        <button className="schedule-button">Schedule Consultation</button>
+        <button className="bg-[#4263A5] text-white rounded-lg py-2.5 px-5 font-bold transition-all duration-300 hover:bg-[#6190ec]">
+          Schedule Consultation
+        </button>
       )}
 
       {isMobileView && (

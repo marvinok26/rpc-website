@@ -1,731 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather');
-@import url('https://fonts.googleapis.com/css2?family=Poppins');
 
 
-a {
-    text-decoration: none;
-}
 
-/* carousel */
-.carousel {
-    height: 780px;
-    margin-top: -50px;
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
-}
-.carousel .list .item {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
-}
-
-.carousel .list .item .content {
-  position: absolute;
-  top: 40%;
-  width: 1000px;
-  height: 400px;
-  max-height: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-right: 30%;
-  box-sizing: border-box;
-  color: #fff;
-  text-shadow: 0 5px 10px #0004;
-}
-.carousel .list .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(70%);
-  }
-  
-.carousel .list .item .company {
-    font-weight: bold;
-    width: 40%;
-    letter-spacing: 2px;
-    font-size: 12px;
-    padding: 4px 2px;
-}
-.carousel .list .item .title {
-    font-size: 3.5em;
-    font-weight: bold;
-    line-height: 1.3em;
-}
-.carousel .list .item .buttons {
-    display: flex;
-    justify-content: left; /* Center-align buttons */
-    gap: 10px; /* Space between buttons */
-    margin-top: 20px;
-}
-
-.carousel .list .item .buttons button:hover{
-    background-color: #354b6b;
-}
-.carousel .list .item .buttons button {
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    background-color: #4263A5;
-    letter-spacing: 1.3px;
-    font-family: Poppins, sans-serif;
-    font-weight: 500;
-    padding: 10px 20px; /* Adjust padding for better button size */
-    display: flex;
-    align-items: center; /* Vertically align text and icon */
-    gap: 10px; /* Space between text and icon */
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-.cons-icon {
-    transition: transform 0.3s ease;
-    font-size: 17px;
-    font-weight: bold;
-}
-.carousel .list .item .buttons button:hover .cons-icon {
-    transform: rotate(45deg);
-}
-.carousel .list .item .buttons button:nth-child(2) {
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #eee;
-}
-
-/* thumbnail */
-.thumbnail {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    width: max-content;
-    z-index: 100;
-    display: flex;
-    gap: 20px;
-}
-.thumbnail .item {
-    width: 150px;
-    height: 220px;
-    flex-shrink: 0;
-    position: relative;
-}
-.thumbnail .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-}
-.thumbnail .item .content {
-    color: #fff;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-}
 .thumbnail .item .content .title {
-    font-weight: 500;
+  font-weight: 500;
 }
 .thumbnail .item .content .des {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 /* animation */
 .carousel .list .item:nth-child(1) {
-    z-index: 1;
+  z-index: 1;
 }
 .carousel .list .item:nth-child(1) .content .company,
 .carousel .list .item:nth-child(1) .content .title,
 .carousel .list .item:nth-child(1) .content .des,
 .carousel .list .item:nth-child(1) .content .buttons {
-    transform: translateY(50px);
-    filter: blur(20px);
-    opacity: 0;
-    animation: showContent .5s 1s linear 1 forwards;
+  transform: translateY(50px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent .5s 1s linear 1 forwards;
 }
 @keyframes showContent {
-    to {
-        transform: translateY(0px);
-        filter: blur(0px);
-        opacity: 1;
-    }
+  to {
+      transform: translateY(0px);
+      filter: blur(0px);
+      opacity: 1;
+  }
 }
 .carousel .list .item:nth-child(1) .content .title {
-    animation-delay: 1.2s !important;
+  animation-delay: 1.2s !important;
 }
 .carousel .list .item:nth-child(1) .content .des {
-    animation-delay: 1.6s !important;
+  animation-delay: 1.6s !important;
 }
 .carousel .list .item:nth-child(1) .content .buttons {
-    animation-delay: 1.8s !important;
+  animation-delay: 1.8s !important;
 }
 
 /* create animation when next click */
 .carousel.next .list .item:nth-child(1) img {
-    width: 150px;
-    height: 220px;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    border-radius: 30px;
-    animation: showImage .5s linear 1 forwards;
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  border-radius: 30px;
+  animation: showImage .5s linear 1 forwards;
 }
 @keyframes showImage {
-    to {
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-    }
+  to {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+  }
 }
 .carousel.next .thumbnail .item:nth-last-child(1) {
-    overflow: hidden;
-    animation: showThumbnail .5s linear 1 forwards;
+  overflow: hidden;
+  animation: showThumbnail .5s linear 1 forwards;
 }
 .carousel.prev .list .item img {
-    z-index: 100;
+  z-index: 100;
 }
 @keyframes showThumbnail {
-    from {
-        width: 0;
-        opacity: 0;
-    }
+  from {
+      width: 0;
+      opacity: 0;
+  }
 }
 .carousel.next .thumbnail {
-    animation: effectNext .5s linear 1 forwards;
+  animation: effectNext .5s linear 1 forwards;
 }
 @keyframes effectNext {
-    from {
-        transform: translateX(150px);
-    }
+  from {
+      transform: translateX(150px);
+  }
 }
 
 /* running time */
-.carousel .time {
-    position: absolute;
-    z-index: 1000;
-    width: 0%;
-    height: 3px;
-    background-color: #f1683a;
-    left: 0;
-    top: 0;
-}
+
 .carousel.next .time,
 .carousel.prev .time {
-    animation: runningTime 3s linear 1 forwards;
+  animation: runningTime 3s linear 1 forwards;
 }
 @keyframes runningTime {
-    from { width: 100%; }
-    to { width: 0; }
+  from { width: 100%; }
+  to { width: 0; }
 }
 
 /* prev click */
 .carousel.prev .list .item:nth-child(2) {
-    z-index: 2;
+  z-index: 2;
 }
 .carousel.prev .list .item:nth-child(2) img {
-    animation: outFrame 0.5s linear 1 forwards;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  animation: outFrame 0.5s linear 1 forwards;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 @keyframes outFrame {
-    to {
-        width: 150px;
-        height: 220px;
-        bottom: 50px;
-        left: 50%;
-        border-radius: 20px;
-    }
+  to {
+      width: 150px;
+      height: 220px;
+      bottom: 50px;
+      left: 50%;
+      border-radius: 20px;
+  }
 }
 .carousel.prev .thumbnail .item:nth-child(1) {
-    overflow: hidden;
-    opacity: 0;
-    animation: showThumbnail .5s linear 1 forwards;
+  overflow: hidden;
+  opacity: 0;
+  animation: showThumbnail .5s linear 1 forwards;
 }
 .carousel.next .arrows button,
 .carousel.prev .arrows button {
-    pointer-events: none;
+  pointer-events: none;
 }
 .carousel.prev .list .item:nth-child(2) .content .company,
 .carousel.prev .list .item:nth-child(2) .content .title,
 .carousel.prev .list .item:nth-child(2) .content .des,
 .carousel.prev .list .item:nth-child(2) .content .buttons {
-    animation: contentOut 1.5s linear 1 forwards !important;
+  animation: contentOut 1.5s linear 1 forwards !important;
 }
 @keyframes contentOut {
-    to {
-        transform: translateY(-150px);
-        filter: blur(20px);
-        opacity: 0;
-    }
+  to {
+      transform: translateY(-150px);
+      filter: blur(20px);
+      opacity: 0;
+  }
 }
 
 @media screen and (max-width: 678px) {
-    .carousel .list .item .content {
-        padding-right: 0;
-    }
-    .carousel .list .item .content .title {
-        font-size: 30px;
-    }
-}
-
-
-/* Mission and Values Section */
-.mission-values {
-    padding: 50px 0;
-    text-align: center;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-  background-image: url('../Assets/Images/buildings/building-102840_1280.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  }
-
-  .mission-values::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.925); /* Adjust opacity as needed */
-    z-index: 1;
-  }
-  
-  .section-title {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #4263A5;
-    position: relative;
-  z-index: 2;
-  }
-  .section-paragraph{
-    margin: 20px auto;
-    max-width: 1000px;
-  position: relative;
-  z-index: 2;
-  }
-  .mission-values-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin: 20px auto;
-    max-width: 1000px;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .mission-image img {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .mission-details {
-    max-width: 600px;
-    text-align: left;
-  }
-  
-  .mission-item {
-    margin-bottom: 20px;
-  }
-  
-  .mission-item h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  
-  .mission-item p {
-    font-size: 1em;
-  }
-
- /* Core Values Section */
-.core-values {
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
-  }
-  
-  .core-values-title {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #4263A5;
-  }
-  
-  .core-values-content {
-    display: flex;
-    gap: 20px;
-    animation: slideIn 1s ease-out;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .core-value {
-    
-    color: #000;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 1.2em;
-    font-weight: 500;
-    flex: 1;
-    text-align: center;
-    position: relative;
-  }
-  
-  .core-value span {
-    display: inline-block;
-    animation: shuffle 2s ease-in-out forwards;
-  }
-  
-  .core-values-button {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .core-values-button button {
-    background-color: #4263A5;
-    color: #fff;
-    border: none;
-    letter-spacing: 1.3px;
-    font-family: Poppins, sans-serif;
-    font-weight: 500;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background 0.3s ease;
-  }
-  
-  .core-values-button button:hover {
-    background-color: #354b6b;
-  }
-  
-  .core-values-button .cons-icon {
-    transition: transform 0.3s ease;
-    font-size: 17px;
-    font-weight: bold;
-  }
-  
-  .core-values-button button:hover .cons-icon {
-    transform: rotate(45deg);
-  }
-  
-  /* Animation for core values */
-  @keyframes slideIn {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-  
-  /* Animation for letter shuffle */
-  @keyframes shuffle {
-    0% {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    50% {
-      transform: translateY(-10%);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-
-  /* Projects Counter section */
-  .counter-wrapper{
-    background: url('../Assets/Images//buildings/stairs-6133971_1280.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 1.5rem;
-    padding: 3rem 9%;
-    position: relative;
-}
-.counter-wrapper::before{
-    position: absolute;
-    content: '';
-    content: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.753);
-    z-index: 2;
-}
-.counter{
-   text-align: center;   
-   color: #fff;
-   z-index: 2;
-   position: relative;
-}
-.counter::before{
-    position: absolute;
-    content: '';
-    bottom: -2rem;
-    left: 50%;
-    width: 20%;
-    height: .2rem;
-    background: #4DB7FE;
-    border-radius: .5rem;
-    -webkit-border-radius: .5rem;
-    -moz-border-radius: .5rem;
-    -ms-border-radius: .5rem;
-    -o-border-radius: .5rem;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-}
-.counter .count{
-    font-size: 5rem;
-    margin-bottom: 1rem;    
-}
-.counter p{
-    font-size: 1.4rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-}
-
-
-
-
-
-
-
-@media (max-width: 991px) {
-    html{
-        font-size: 55%;
-    }
-}
-@media (max-width: 768px) {
-   .counter-wrapper{
-       grid-template-columns: repeat(2, 1fr);
-       grid-row-gap: 8rem;
-   }
-}
-@media (max-width: 450px) {
-    html{
-        font-size: 50%;
-    }
-    .counter-wrapper{
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
-
-  
-
-  /* Our Services Section */
-.our-services {
-    padding: 40px 0;
-    text-align: center;
-    background-color: #f9f9f9;
-    font-family: sans-serif;
-  }
-  
-  .services-title {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #4263A5;
-  }
-  
-  .services-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1250px;
-    margin: 0 auto;
-  }
-  
-  .service-item {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    flex: 1;
-    max-width: 23%;
-    box-sizing: border-box;
-    transition: transform 0.3s ease;
-  }
-  
-  .service-item:hover {
-    transform: translateY(-10px);
-  }
-  
-  .service-image {
-    width: 250px;
-    height: 200px;
-    border-radius: 5px;
-    object-fit: cover;
-  }
-  
-  .service-title {
-    font-size: 1.1em;
-    margin: 15px 0 10px;
-    color: #4263A5;
-  }
-  
-  .service-description {
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
-  
-  .service-button {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-  }
-
-  .service-button button {
-    position: absolute;
-    bottom: 0px;
-    background-color: #4263A5;
-    color: #fff;
-    border: none;
-    letter-spacing: 1.3px;
-    font-family: Poppins, sans-serif;
-    font-weight: 500;
-    padding: 8px 8px;
-    font-size: 0.79em;
-    cursor: pointer;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: background 0.3s ease;
-    margin-left: -60px;
-  }
-  
-
-  
-  .service-button button:hover {
-    background-color: #354b6b;
-  }
-  
-  .service-button .cons-icon {
-    transition: transform 0.3s ease;
-    font-size: 15px;
-    font-weight: bold;
-  }
-  
-  .service-button button:hover .cons-icon {
-    transform: rotate(45deg);
-  }
-
-
-/* Media Query for screens smaller than 800px CAROUSEL*/
-@media screen and (max-width: 800px) {
-  .carousel {
-      height: 500px; /* Adjust carousel height */
-      margin-top: -30px; /* Adjust margin for better positioning */
-  }
-  
   .carousel .list .item .content {
-      width: 80%; /* Reduce width of content */
-      height: 300px; /* Reduce height of content */
-      padding-right: 10%; /* Adjust padding */
-      top: 30%; /* Adjust vertical positioning */
+      padding-right: 0;
   }
-  
-  .carousel .list .item .company {
-      font-size: 10px; /* Reduce font size */
-      width: 60%; /* Adjust width */
-      padding: 2px 1px; /* Adjust padding */
-  }
-  
-  .carousel .list .item .title {
-      font-size: 2em; /* Reduce font size */
-      line-height: 1.2em; /* Adjust line-height */
-  }
-  
-  .carousel .list .item .buttons button {
-      padding: 8px 15px; /* Adjust button padding */
-      font-size: 0.7em; /* Reduce font size */
-  }
-  
-  .carousel .list .item .buttons button .cons-icon {
-      font-size: 14px; /* Reduce icon size */
-  }
-  
-  .thumbnail {
-      bottom: 20px; /* Adjust bottom position */
-      gap: 10px; /* Reduce gap */
-  }
-  
-  .thumbnail .item {
-      width: 120px; /* Reduce width */
-      height: 170px; /* Reduce height */
-  }
-  
-  .thumbnail .item .content {
-      bottom: 5px; /* Adjust bottom position */
-  }
-  
-  .thumbnail .item .content .title {
-      font-size: 0.8em; /* Reduce font size */
-  }
-  
-  .thumbnail .item .content .des {
-      font-size: 0.7em; /* Reduce font size */
-  }
-}
-
-
-
-  
-
-
-/* Media Query for screens smaller than 800px :SERVICES SECTION*/
-@media (max-width: 800px) {
-  .services-content {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Two columns */
-      gap: 20px; /* Space between items */
-  }
-
-  .service-item {
-      max-width: none; /* Remove previous max-width */
-      width: 100%; /* Ensure the item takes full width of its grid cell */
-      box-sizing: border-box; /* Include padding and border in the width */
-  }
-
-  .service-image {
-      width: 200px; /* Reduce image width */
-      height: 150px; /* Reduce image height */
-  }
-
-  .service-title {
-      font-size: 0.7em; /* Adjust font size */
-  }
-
-  .service-description {
-      font-size: 0.7em; /* Adjust font size */
+  .carousel .list .item .content .title {
+      font-size: 30px;
   }
 }
