@@ -1,3 +1,4 @@
+/* Base styles for the footer */
 footer {
   position: relative;
   display: flex;
@@ -14,7 +15,7 @@ footer {
 }
 
 footer::before {
-  content: "";
+  content: ""; 
   position: absolute;
   left: 0;
   top: 100px;
@@ -23,3 +24,88 @@ footer::before {
   background: white;
 }
 
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  footer {
+    background-size: 48px 96px;
+  }
+
+  .content {
+    padding: 10px 20px;
+  }
+
+  .top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-details {
+    margin-bottom: 20px;
+  }
+
+  .media-icons {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .link-boxes {
+    flex-direction: column;
+  }
+
+  .box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .input-box {
+    width: 100%;
+  }
+
+  .bottom-text {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    background-size: 32px 64px;
+  }
+
+  .top {
+    padding: 10px 0;
+  }
+
+  .logo-details {
+    text-align: center;
+  }
+
+  .media-icons {
+    gap: 6px;
+  }
+
+  .link-boxes .box {
+    font-size: 12px;
+  }
+
+  .input-box input[type="text"] {
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .input-box input[type="button"] {
+    font-size: 14px;
+    height: 35px;
+  }
+
+  .bottom-text {
+    padding: 10px 5px;
+  }
+
+  .bottom-text span {
+    font-size: 12px;
+  }
+}
