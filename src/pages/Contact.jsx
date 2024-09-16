@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/Contact.css';
 import ImageRow from '../components/Images';
 
 const Contact = () => {
@@ -11,11 +10,11 @@ const Contact = () => {
   return (
     <>
       <ImageRow />
-      <div className="contact-container">
-        <h1 className="contact-heading">CONTACT US</h1>
-        <div className="contact-content">
-          <div className="contact-details">
-            <h2>Contact Details</h2>
+      <div className="px-5 py-5">
+        <h1 className="text-4xl text-[#4263A5] my-8 text-center md:text-5xl">CONTACT US</h1>
+        <div className="flex flex-col md:flex-row gap-4 md:gap-24 mx-4 md:mx-28">
+          <div className="md:w-1/2">
+            <h2 className="mt-0 text-xl">Contact Details</h2>
             <p><strong>Operation hours:</strong></p>
             <p>Monday to Friday between 8.00 am to 5.00 pm</p>
             <p><strong>Telephone contacts:</strong></p>
@@ -24,30 +23,29 @@ const Contact = () => {
             <p><strong>Email:</strong></p>
             <p>info@realplan.co.ke</p>
             <p>Or Leave us a Message</p>
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form onSubmit={handleSubmit} className="space-y-2">
               <div>
-                <label htmlFor="name">Your Name:</label>
-                <input type="text" id="name" name="name" required />
+                <label htmlFor="name" className="block">Your Name:</label>
+                <input type="text" id="name" name="name" required className="w-full p-2 bg-white border border-gray-300 rounded" />
               </div>
               <div>
-                <label htmlFor="email">Your Email:</label>
-                <input type="email" id="email" name="email" required />
+                <label htmlFor="email" className="block">Your Email:</label>
+                <input type="email" id="email" name="email" required className="w-full p-2 bg-white border border-gray-300 rounded" />
               </div>
               <div>
-                <label htmlFor="message">Message:</label>
-                <textarea id="message" name="message" required />
+                <label htmlFor="message" className="block">Message:</label>
+                <textarea id="message" name="message" required className="w-full p-2 bg-white border border-gray-300 rounded" />
               </div>
-              <button type="submit">Send Message</button>
+              <button type="submit" className="px-5 py-2 bg-blue-500 text-white rounded">Send Message</button>
             </form>
           </div>
-          <div className="map-container">
-            <h2>Visit Us</h2>
+          <div className="md:w-1/2">
+            <h2 className="mt-0 text-xl">Visit Us</h2>
             <p>4th Avenue Towers, along 4th Ngong Avenue (off Bishop/Ngong road)</p>
             <p>Upper Hill, Nairobi</p>
             <p>(Suite 16.4, 16th Floor)</p>
-            <iframe className='iframe'
-              width="100%"
-              height="400"
+            <iframe
+              className="w-full md:h-[400px] h-[200px] md:w-[600px]"
               frameBorder="0"
               scrolling="no"
               marginHeight="0"
