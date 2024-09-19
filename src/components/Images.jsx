@@ -13,14 +13,9 @@ const images = [image1, image2, image3, image4, image5];
 
 const ImageRow = () => {
   return (
-    <div className="flex overflow-x-auto whitespace-nowrap py-0 mt-20 gap-0 relative z-10">
+    <div className="image-row flex overflow-auto whitespace-nowrap p-0 mt-[5.2rem] gap-0 relative top-0 z-[1]">
       {images.map((src, index) => (
-        <img
-          src={src}
-          alt={`Beautiful ${index + 1}`}
-          key={index}
-          className="w-48 h-48 object-cover flex-shrink-0 border-none inline-block sm:w-40 sm:h-40 xs:w-32 xs:h-32"
-        />
+        <img src={src} alt={`Beautiful ${index + 1}`} key={index} className="image w-[200px] h-[200px] object-cover flex-1 border-none inline-block sm:w-40 sm:h-48 xs:w-32 xs:h-32" />
       ))}
     </div>
   );
