@@ -1,23 +1,39 @@
 .project-detail {
-    padding: 20px;
-    margin-top: 5rem;
-  }
-  
-  .images-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .detail-image {
-    width: calc(50% - 10px); /* Adjust width for responsive layout */
-    height: 300px;
-    object-fit: cover;
-  }
-  
-  .description {
-    margin-top: 20px;
-    font-size: 1rem;
-    text-align: center;
-  }
-  
+  margin-top: 5rem;
+  padding: 20px;
+}
+
+.images-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.image-container {
+  position: relative;
+  width: calc(50% - 10px);
+}
+
+.detail-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.7);
+  transition: filter 0.3s ease;
+}
+
+.image-container:hover .detail-image {
+  filter: brightness(0.9);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+}
+
+.image-title {
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
