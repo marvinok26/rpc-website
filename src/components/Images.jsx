@@ -1,7 +1,6 @@
 // src/components/ImageRow.js
 
 import React from 'react';
-import '../styles/Images.css'; 
 
 // Import images directly
 import image1 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/DJI_0206.webp';
@@ -14,9 +13,14 @@ const images = [image1, image2, image3, image4, image5];
 
 const ImageRow = () => {
   return (
-    <div className="image-row">
+    <div className="flex overflow-x-auto whitespace-nowrap py-0 mt-20 gap-0 relative z-10">
       {images.map((src, index) => (
-        <img src={src} alt={`Beautiful ${index + 1}`} key={index} className="image" />
+        <img
+          src={src}
+          alt={`Beautiful ${index + 1}`}
+          key={index}
+          className="w-48 h-48 object-cover flex-shrink-0 border-none inline-block sm:w-40 sm:h-40 xs:w-32 xs:h-32"
+        />
       ))}
     </div>
   );

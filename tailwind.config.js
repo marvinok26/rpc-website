@@ -12,6 +12,14 @@ module.exports = {
       animation: {
         slideIn: 'slideIn 0.5s ease-out',
       },
+
+      screens: {
+        'xs': '480px',
+      },
+      spacing: {
+        '32': '8rem',
+        '40': '10rem',
+      },
     },
   },
   plugins: [],

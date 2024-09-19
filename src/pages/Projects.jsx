@@ -25,7 +25,7 @@ const Projects = () => {
             <img
               src={project.src}
               alt={project.title}
-              className="w-full h-96 object-cover filter brightness-75 transition duration-300 ease-in-out sm:brightness-100 sm:hover:brightness-75"
+              className="w-full h-[500px] object-cover filter brightness-75 transition duration-300 ease-in-out sm:brightness-100 sm:hover:brightness-75"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white opacity-100 sm:opacity-0 sm:hover:opacity-100 sm:transition-opacity sm:duration-300 sm:ease-in-out">
               <div className="text-xl text-center">{project.title}</div>

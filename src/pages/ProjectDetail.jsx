@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import "../styles/ProjectDetail.css";
+// import "../styles/ProjectDetail.css";
 
 // county spatial images
 import img1 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/Agro_Ecological Zones_ AUGUST 2021.webp';
@@ -43,28 +43,28 @@ const projectDetails = {
   "isud-plans": {
     title: "ISUD Plans",
     images: [
-      { src: img8, title: "CBD Expansion Design Concept 2" },
-      { src: img9, title: "CBD Expansion Design Concept" },
-      { src: img10, title: "CBD Expansion" },
-      { src: img11, title: "Nakuru Land Use" },
-      { src: img12, title: "TOD" },
-      { src: img13, title: "Transport Plan" },
+      { src: img8, title: "NAKURU" },
+      { src: img9, title: "NAIVASHA" },
+      { src: img10, title: "NYERI" },
+      { src: img11, title: "MANDERA" },
+      { src: img12, title: "MERU" },
+      { src: img13, title: "MTWAPA" },
     ],
     description: "This is a detailed description of ISUD Plans.",
   },
   "master-plans": {
     title: "Master Plans",
     images: [
-      { src: img14, title: "Master Plan 1" },
-      { src: img15, title: "Master Plan 2" },
+      { src: img14, title: "MASTER PLAN 1" },
+      { src: img15, title: "MASTER PLAN 2" },
     ],
     description: "This is a detailed description of Master Plans.",
   },
   "urban-renewal-slum-upgrades": {
     title: "Urban Renewal & Slum Upgrades",
     images: [
-      { src: img16, title: "Urban Renewal" },
-      { src: img17, title: "Slum Upgrade" },
+      { src: img16, title: "URBAN RENEWAL" },
+      { src: img17, title: "SLUM UPGRADE" },
     ],
     description: "This is a detailed description of Urban Renewal & Slum Upgrades.",
   },
@@ -89,11 +89,12 @@ const ProjectDetail = () => {
               <img
                 src={image.src}
                 alt={image.title}
-                className="w-full h-96 object-cover filter brightness-75 transition duration-300 ease-in-out group-hover:brightness-50"
+                className="w-full h-[500px] object-cover filter "
+                //brightness-75 transition duration-300 ease-in-out group-hover:brightness-50
               />
-              <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+              {/* <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                 <div className="text-xl text-center">{image.title}</div>
-              </div>
+              </div> */}
             </div>
           ) : (
             // For other project images, wrap in Link
@@ -101,7 +102,7 @@ const ProjectDetail = () => {
               <img
                 src={image.src}
                 alt={image.title}
-                className="w-full h-96 object-cover filter brightness-75 transition duration-300 ease-in-out group-hover:brightness-50"
+                className="w-full h-[500px] object-cover filter brightness-75 transition duration-300 ease-in-out group-hover:brightness-50"
               />
               <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                 <div className="text-xl text-center">{image.title}</div>
