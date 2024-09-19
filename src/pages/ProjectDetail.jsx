@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-// import "../styles/ProjectDetail.css";
+
 
 // county spatial images
 import img1 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/Agro_Ecological Zones_ AUGUST 2021.webp';
@@ -25,6 +25,7 @@ import img15 from '../Assets/PROJECTS BATCH 1/MASTER PLAN 2 ALBIZZIA TILE.webp';
 // Urban Renewal & Slum Upgrades
 import img16 from '../Assets/PROJECTS BATCH 1/URBAN RENEWAL TILE.webp';
 import img17 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE TILE.webp';
+import ImageRow from '../components/Images';
 
 // Project data with slugs
 const projectDetails = {
@@ -79,8 +80,10 @@ const ProjectDetail = () => {
   }
 
   return (
+    <>
+    <ImageRow />
     <div className="project-detail">
-      <h1>{project.title}</h1>
+      <h1 className='text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center'>{project.title}</h1>
       <div className="images-gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
         {project.images.map((image, index) => (
           id === "county-spatial-plan" ? (
@@ -113,6 +116,7 @@ const ProjectDetail = () => {
       </div>
       <p className="description">{project.description}</p>
     </div>
+    </>
   );
 };
 

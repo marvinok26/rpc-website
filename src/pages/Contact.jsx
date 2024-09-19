@@ -11,7 +11,7 @@ const Contact = () => {
     <>
       <ImageRow />
       <div className="px-5 py-5">
-      <h2 className="services-head">CONTACT US</h2>
+      <h2 className="text-2xl sm:text-4xl my-6 sm:my-8 text-[#4263A5] text-center">CONTACT US</h2>
         <div className="flex flex-col md:flex-row gap-4 md:gap-24 mx-4 md:mx-28">
           <div className="md:w-1/2">
             <h2 className="mt-0 text-xl">Contact Details</h2>

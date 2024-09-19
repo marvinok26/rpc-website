@@ -18,7 +18,7 @@ const Projects = () => {
   return (
     <>
       <ImageRow />
-      <h2 className="services-head">PROJECTS</h2>
+      <h2 className="text-2xl sm:text-4xl my-6 sm:my-8 text-[#4263A5] text-center">PROJECTS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-5 m-16">
         {projects.map((project) => (
           <Link to={`/project/${project.slug}`} key={project.slug} className="relative block no-underline">

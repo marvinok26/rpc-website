@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 // ISUD Nakuru
@@ -57,54 +57,97 @@ import img34 from '../Assets/PROJECTS BATCH 1/URBAN RENEWAL & REDEVELOPLENT PLAN
 //Slum Upgrade Plan
 import img35 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE PLAN/KOROGOCHO VILLAGES.webp'
 import img36 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE PLAN/Korogocho Land use Plan.webp'
-
-
-
-
+import ImageRow from '../components/Images';
 
 
 const imageDetails = {
-    "isud-plans": {
-      1: { title: 'ISUD Nakuru', images: [img1, img2, img3, img4, img5, img6] },
-      2: { title: 'ISUD Naivasha', images: [img7, img8, img9, img10, img11, img12] },
-      3: { title: 'ISUD Nyeri', images: [img13, img14, img15, img16, img17] },
-      4: { title: 'ISUD Mandera', images: [img18, img19] },
-      5: { title: 'ISUD Meru', images: [img20, img21, img22] },
-      6: { title: 'ISUD Mtwapa', images: [img23] },
-    },
-    "master-plans": {
-      1: { title: 'Master Plan 1', images: [img24] },
-      2: { title: 'Master Plan 2', images: [img25, img26, img27, img28] },
-    },
-    "urban-renewal-slum-upgrades": {
-      1: { title: 'Urban Renewal', images: [img29, img30, img31, img32, img33, img34] },
-      2: { title: 'Slum Upgrade Plan', images: [img35, img36] },
-    },
+  "isud-plans": {
+    1: { title: 'ISUD Nakuru', images: [img1, img2, img3, img4, img5, img6] },
+    2: { title: 'ISUD Naivasha', images: [img7, img8, img9, img10, img11, img12] },
+    3: { title: 'ISUD Nyeri', images: [img13, img14, img15, img16, img17] },
+    4: { title: 'ISUD Mandera', images: [img18, img19] },
+    5: { title: 'ISUD Meru', images: [img20, img21, img22] },
+    6: { title: 'ISUD Mtwapa', images: [img23] },
+  },
+  "master-plans": {
+    1: { title: 'Master Plan 1', images: [img24] },
+    2: { title: 'Master Plan 2', images: [img25, img26, img27, img28] },
+  },
+  "urban-renewal-slum-upgrades": {
+    1: { title: 'Urban Renewal', images: [img29, img30, img31, img32, img33, img34] },
+    2: { title: 'Slum Upgrade Plan', images: [img35, img36] },
+  },
+};
+
+const ImageDetail = () => {
+  const { id, imageId } = useParams(); // 'id' is project slug, 'imageId' is the image index
+  const imageData = imageDetails[id]?.[imageId];
+  
+  // State to manage the clicked image and zoom toggle
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isZoomedIn, setIsZoomedIn] = useState(false); // New state for zoom
+
+  if (!imageData) {
+    return <div>Image not found</div>;
+  }
+
+  // Handlers
+  const closeImage = () => {
+    setSelectedImage(null);
+    setIsZoomedIn(false); // Reset zoom when closing the image
   };
-  
-  const ImageDetail = () => {
-    const { id, imageId } = useParams(); // 'id' is project slug, 'imageId' is the image index
-    const imageData = imageDetails[id]?.[imageId];
-  
-    if (!imageData) {
-      return <div>Image not found</div>;
-    }
-  
-    return (
-      <div className='pt-20'>
-        <h1>{imageData.title}</h1>
+
+  const toggleZoom = () => {
+    setIsZoomedIn((prev) => !prev); // Toggle zoom state
+  };
+
+  return (
+    <>
+      <ImageRow />
+      <div className="pt-20">
+        <h1 className="text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center">{imageData.title}</h1>
+        
+        {/* Image Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5">
           {imageData.images.map((image, index) => (
             <img
               key={index}
               src={image}
               alt={`${imageData.title} ${index + 1}`}
-              className="w-full h-96 object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110"
+              className="w-full h-72 sm:h-96 object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110 cursor-pointer"
+              onClick={() => setSelectedImage(image)} // Set clicked image as selected
             />
           ))}
         </div>
       </div>
-    );
-  };
-  
-  export default ImageDetail;
+
+      {/* Full-screen image modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={closeImage}>
+          <div className="relative">
+            <button
+              className="absolute top-0 right-0 text-white text-3xl p-4"
+              onClick={closeImage} // Close button
+            >
+              &times;
+            </button>
+
+            <img
+              src={selectedImage}
+              alt="Selected"
+              className={`w-full max-w-xs sm:max-w-3xl h-auto object-contain transition-transform duration-300 ease-in-out cursor-pointer ${
+                isZoomedIn ? 'scale-150' : 'scale-100'
+              }`} // Zoom in/out based on state
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent the image click from triggering the modal close
+                toggleZoom(); // Toggle zoom on image click
+              }}
+            />
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default ImageDetail;
