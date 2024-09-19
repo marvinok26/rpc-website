@@ -6,7 +6,6 @@ import img2 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 3 NYERI TILE.webp';
 import img3 from '../Assets/PROJECTS BATCH 1/MASTER PLAN 2 ALBIZZIA TILE.webp';
 import img4 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE PLAN/Korogocho Land use Plan.webp';
 
-// Use slugs instead of IDs
 const projects = [
   { slug: 'county-spatial-plan', src: img1, title: 'County Spatial Plan' },
   { slug: 'isud-plans', src: img2, title: 'ISUD Plans' },
@@ -25,7 +24,7 @@ const Projects = () => {
             <img
               src={project.src}
               alt={project.title}
-              className="w-full h-[500px] sm:w-full object-cover filter brightness-75 transition duration-300 ease-in-out sm:brightness-100 sm:hover:brightness-75"
+              className="w-full h-[500px] object-cover filter brightness-75 transition duration-300 ease-in-out sm:brightness-100 sm:hover:brightness-75 sm:w-auto" // Apply width only for smaller screens
             />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white opacity-100 sm:opacity-0 sm:hover:opacity-100 sm:transition-opacity sm:duration-300 sm:ease-in-out">
               <div className="text-xl text-center">{project.title}</div>
