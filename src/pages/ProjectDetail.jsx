@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 
@@ -27,7 +27,7 @@ import img16 from '../Assets/PROJECTS BATCH 1/URBAN RENEWAL TILE.webp';
 import img17 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE TILE.webp';
 import ImageRow from '../components/Images';
 
-// Project data with slugs
+// Project data with slugs 
 const projectDetails = {
   "county-spatial-plan": {
     title: "County Spatial Plan",
@@ -71,51 +71,70 @@ const projectDetails = {
   },
 };
 
+
 const ProjectDetail = () => {
-  const { id } = useParams(); // 'id' now represents the project name
+  const { id } = useParams();
   const project = projectDetails[id];
+  
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [zoomed, setZoomed] = useState(false);
 
   if (!project) {
     return <div>Project not found</div>;
   }
 
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    setZoomed(false); // Reset zoom on new image click
+  };
+
+  const handleZoomToggle = () => {
+    setZoomed(!zoomed); // Toggle zoom state
+  };
+
+  const handleClose = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <>
-    <ImageRow />
-    <div className="project-detail">
-      <h1 className='text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center'>{project.title}</h1>
-      <div className="images-gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {project.images.map((image, index) => (
-          id === "county-spatial-plan" ? (
-            // For "county-spatial-plan" images, no Link wrapper
-            <div key={index} className="relative block no-underline group">
+      <div className="project-detail">
+        <h1 className="text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center">{project.title}</h1>
+        <div className="images-gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {project.images.map((image, index) => (
+            <div
+              key={index}
+              className="relative block no-underline group cursor-pointer"
+              onClick={() => handleImageClick(image)}
+            >
               <img
                 src={image.src}
                 alt={image.title}
-                className="w-full h-[500px] object-cover filter "
-                //brightness-75 transition duration-300 ease-in-out group-hover:brightness-50
+                className="w-full h-[500px] object-cover"
               />
-              {/* <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                <div className="text-xl text-center">{image.title}</div>
-              </div> */}
             </div>
-          ) : (
-            // For other project images, wrap in Link
-            <Link to={`/project/${id}/image/${index + 1}`} key={index} className="relative block no-underline group">
-              <img
-                src={image.src}
-                alt={image.title}
-                className="w-full h-[500px] object-cover filter brightness-75 transition duration-300 ease-in-out group-hover:brightness-50"
-              />
-              <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                <div className="text-xl text-center">{image.title}</div>
-              </div>
-            </Link>
-          )
-        ))}
+          ))}
+        </div>
+        <p className="description">{project.description}</p>
       </div>
-      <p className="description">{project.description}</p>
-    </div>
+
+      {/* Modal for displaying the clicked image */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          onClick={handleClose} // Clicking outside the image closes the modal
+        >
+          <img
+            src={selectedImage.src}
+            alt={selectedImage.title}
+            className={`transition-transform duration-300 ease-in-out ${zoomed ? 'scale-150' : 'scale-100'} cursor-pointer`}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent closing when clicking the image
+              handleZoomToggle(); // Zoom in/out on image click
+            }}
+          />
+        </div>
+      )}
     </>
   );
 };
