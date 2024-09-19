@@ -85,7 +85,7 @@ const ImageDetail = () => {
   
   // State to manage the clicked image and zoom toggle
   const [selectedImage, setSelectedImage] = useState(null);
-  const [isZoomedIn, setIsZoomedIn] = useState(false); // New state for zoom
+  const [isZoomedIn, setIsZoomedIn] = useState(false); // Zoom state
 
   if (!imageData) {
     return <div>Image not found</div>;
@@ -123,10 +123,16 @@ const ImageDetail = () => {
 
       {/* Full-screen image modal */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={closeImage}>
-          <div className="relative">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          onClick={closeImage} // Close modal when clicking outside the image
+        >
+          <div
+            className="relative bg-white p-4 mx-4 sm:mx-8 max-w-full max-h-full overflow-auto"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+          >
             <button
-              className="absolute top-0 right-0 text-white text-3xl p-4"
+              className="fixed top-4 right-4 text-white text-3xl p-2 bg-black rounded-full z-50"
               onClick={closeImage} // Close button
             >
               &times;
@@ -135,13 +141,10 @@ const ImageDetail = () => {
             <img
               src={selectedImage}
               alt="Selected"
-              className={`w-full max-w-xs sm:max-w-3xl h-auto object-contain transition-transform duration-300 ease-in-out cursor-pointer ${
+              className={`w-[700px] h-[500px] object-contain transition-transform duration-300 ease-in-out cursor-pointer ${
                 isZoomedIn ? 'scale-150' : 'scale-100'
-              }`} // Zoom in/out based on state
-              onClick={(e) => {
-                e.stopPropagation(); // Prevent the image click from triggering the modal close
-                toggleZoom(); // Toggle zoom on image click
-              }}
+              }`} // Fixed width and height
+              onClick={toggleZoom} // Toggle zoom on image click
             />
           </div>
         </div>

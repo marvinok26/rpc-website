@@ -71,7 +71,6 @@ const projectDetails = {
   },
 };
 
-
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = projectDetails[id];
@@ -98,7 +97,7 @@ const ProjectDetail = () => {
 
   return (
     <>
-    <ImageRow />
+      <ImageRow />
       <div className="project-detail">
         <h1 className="text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center">{project.title}</h1>
         <div className="images-gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -125,15 +124,28 @@ const ProjectDetail = () => {
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
           onClick={handleClose} // Clicking outside the image closes the modal
         >
-          <img
-            src={selectedImage.src}
-            alt={selectedImage.title}
-            className={`transition-transform duration-300 ease-in-out ${zoomed ? 'scale-150' : 'scale-100'} cursor-pointer`}
-            onClick={(e) => {
-              e.stopPropagation(); // Prevent closing when clicking the image
-              handleZoomToggle(); // Zoom in/out on image click
-            }}
-          />
+          <div className="relative bg-white p-4 mx-4 sm:mx-8 max-w-full max-h-full overflow-auto">
+            <button
+              className="absolute top-4 right-4 text-white text-3xl p-2 bg-black rounded-full z-50"
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent closing when clicking the button
+                handleClose(); // Close the modal on button click
+              }}
+            >
+              &times;
+            </button>
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.title}
+              className={`w-[700px] h-[500px] object-contain transition-transform duration-300 ease-in-out cursor-pointer ${
+                zoomed ? 'scale-150' : 'scale-100'
+              }`} // Fixed width and height
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent closing when clicking the image
+                handleZoomToggle(); // Zoom in/out on image click
+              }}
+            />
+          </div>
         </div>
       )}
     </>
