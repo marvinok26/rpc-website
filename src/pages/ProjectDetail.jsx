@@ -98,6 +98,7 @@ const ProjectDetail = () => {
 
   return (
     <>
+    <ImageRow />
       <div className="project-detail">
         <h1 className="text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center">{project.title}</h1>
         <div className="images-gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
