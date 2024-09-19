@@ -1,9 +1,6 @@
 import React from 'react';
-
 import ImageRow from '../components/Images';
-import '../styles/Services.css';
 import { GiConfirmed } from "react-icons/gi";
-
 import image1 from "../Assets/Images/buildings/landuse.PNG"
 import image2 from "../Assets/Images/buildings/development.PNG"
 import image3 from "../Assets/Images/buildings/gis.PNG"
@@ -66,16 +63,21 @@ const Services = () => {
     <>
       <ImageRow />
       <div className="services-section">
-        <h2 className="services-head">OUR SERVICES</h2>
-        <div className="services-contain">
+        <h2 className="text-2xl sm:text-4xl my-6 sm:my-8 text-[#4263A5] text-center">OUR SERVICES</h2>
+        <div className="flex flex-col items-center px-4 sm:px-5 py-4 bg-[#f9f9f9] w-[100vw]">
           {serviceData.map((item) => (
-            <div key={item.id} className="service-it">
-              <img src={item.imageSrc} alt={item.title} className="service-im" />
-              <div className="service-det">
-                <h3 className="service-ti">{item.title}</h3>
-                <ul className="service-li">
+            <div key={item.id} className="flex flex-col sm:flex-row items-start sm:items-center mb-5 w-full max-w-[1200px] sm:px-5 box-border">
+              <img
+                src={item.imageSrc}
+                alt={item.title}
+                className="h-[300px] sm:h-[450px] w-full sm:w-[500px] object-cover mb-4 sm:mb-0 sm:mr-8 sm:ml-20 rounded-md"
+              />
+              <div className="flex flex-col sm:items-start text-center sm:text-left">
+                <h3 className="text-lg sm:text-xl mb-2 text-[#333]">{item.title}</h3>
+                <ul className="list-none pl-0 sm:pl-4">
                   {item.services.map((service, index) => (
-                    <li key={index} className="service"><GiConfirmed className="tick-icon"/>
+                    <li key={index} className="mb-2 text-[#666] flex items-center">
+                      <GiConfirmed className="mr-2" />
                       {service}
                       {index === 5 && item.sublist && (
                         <ul className="sublist">
