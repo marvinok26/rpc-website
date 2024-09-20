@@ -1,5 +1,3 @@
-// src/components/CategoryTitle.js
-
 const CategoryTitle = ({ title }) => {
   return (
     <div className="text-center mb-5 sm:mb-3">

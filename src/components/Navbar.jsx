@@ -5,6 +5,7 @@ import { FaBars } from 'react-icons/fa';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 import logo from '../Assets/Images/Logo/RPC_LTD_LOGO-removebg-preview.png';
+import IconButton from './IconButton';
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -128,9 +129,9 @@ const Navbar = () => {
       )}
 
       {!isMobileView && (
-        <button className="bg-[#4263A5] text-white rounded-lg py-2.5 px-5 font-bold transition-all duration-300 hover:bg-[#6190ec]">
-          Schedule Consultation
-        </button>
+        // <button className="bg-[#4263A5] text-white rounded-lg py-2.5 px-5 font-bold transition-all duration-300 hover:bg-[#6190ec]">
+          <IconButton />
+        // </button>
       )}
 
       {isMobileView && (

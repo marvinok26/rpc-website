@@ -8,10 +8,27 @@ const Layout = () => {
   return (
     <div className="layout-container">
       <NavBar />
-      <main className="main-content">
+      <main className="main-content" role="main">
         <Outlet />
       </main>
       <Footer />
+      
+      {/* Structured Data for SEO */}
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Real Plan Consultants",
+            "url": "https://www.realplanconsultants.com",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://www.realplanconsultants.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        `}
+      </script>
     </div>
   );
 };

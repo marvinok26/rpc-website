@@ -19,6 +19,24 @@ const Clients = () => {
           />
         ))}
       </div>
+
+      {/* Structured Data for SEO */}
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Real Plan Consultants",
+            "url": "https://www.realplanconsultants.com",
+            "logo": "https://www.realplanconsultants.com/logo.png",
+            "description": "A leader in land use and environmental consultancy, serving diverse clients.",
+            "sameAs": [
+              "https://www.facebook.com/RealPlanConsultants",
+              "https://www.linkedin.com/company/realplanconsultants"
+            ]
+          }
+        `}
+      </script>
     </>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 import ImageRow from '../components/Images';
 import { GiConfirmed } from "react-icons/gi";
-import image1 from "../Assets/Images/buildings/landuse.PNG"
-import image2 from "../Assets/Images/buildings/development.PNG"
-import image3 from "../Assets/Images/buildings/gis.PNG"
+import image1 from "../Assets/Images/buildings/landuse.PNG";
+import image2 from "../Assets/Images/buildings/development.PNG";
+import image3 from "../Assets/Images/buildings/gis.PNG";
 
 // Data for services
 const serviceData = [
@@ -17,16 +17,15 @@ const serviceData = [
       'Inter-Regional Physical and Land use Plans',
       'County Spatial Plans',
       'Local Physical and Land Use development Plans',
-      'Integrated Strategic Urban Development Plans ',
+      'Integrated Strategic Urban Development Plans',
       'Urban and Municipal Plans',
       'Urban Renewal Plans',
-      'Master Plans ',
-      'Slum Upgrading Programmes ',
-      'Subject Plans ',
+      'Master Plans',
+      'Slum Upgrading Programmes',
+      'Subject Plans',
       'Street and physical address systems',
       'Planning and Development Studies and Related research'
     ],
-    sublist: null,
   },
   {
     id: 2,
@@ -36,11 +35,10 @@ const serviceData = [
       'Project feasibility studies and business case',
       'Renewal & Extensions of Lease',
       'Change & extension of Use',
-      'Master plans ',
-      'Amalgamation & Subdivision plans ',
+      'Master plans',
+      'Amalgamation & Subdivision plans',
       'Outdoor Advertisements'
     ],
-    sublist: null,
   },
   {
     id: 3,
@@ -54,7 +52,6 @@ const serviceData = [
       'Resettlement Action Plans (RAP)',
       'Electro Magnetic Field Testing and measurements'
     ],
-    sublist: null,
   }
 ];
 
@@ -69,7 +66,8 @@ const Services = () => {
             <div key={item.id} className="flex flex-col sm:flex-row items-start sm:items-center mb-5 w-full max-w-[1200px] sm:px-5 box-border">
               <img
                 src={item.imageSrc}
-                alt={item.title}
+                alt={`Service related to ${item.title}`}
+                loading="lazy" // Lazy loading for better performance
                 className="h-[300px] sm:h-[450px] w-full sm:w-[500px] object-cover mb-4 sm:mb-0 sm:mr-8 sm:ml-20 rounded-md"
               />
               <div className="flex flex-col sm:items-start text-center sm:text-left">
@@ -79,13 +77,6 @@ const Services = () => {
                     <li key={index} className="mb-2 text-[#666] flex items-center">
                       <GiConfirmed className="mr-2" />
                       {service}
-                      {index === 5 && item.sublist && (
-                        <ul className="sublist">
-                          {item.sublist.map((subService, subIndex) => (
-                            <li key={subIndex}>{subService}</li>
-                          ))}
-                        </ul>
-                      )}
                     </li>
                   ))}
                 </ul>
@@ -94,6 +85,38 @@ const Services = () => {
           ))}
         </div>
       </div>
+
+      {/* Structured Data for SEO */}
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Consultancy Services",
+            "provider": {
+              "@type": "Organization",
+              "name": "Real Plan Consultants Ltd",
+              "url": "https://www.realplanconsultants.com",
+              "logo": "https://www.realplanconsultants.com/logo.png",
+              "sameAs": "https://www.realplanconsultants.com"
+            },
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Physical and Land Use Planning"
+              },
+              {
+                "@type": "Offer",
+                "name": "Development Services"
+              },
+              {
+                "@type": "Offer",
+                "name": "Environmental Services"
+              }
+            ]
+          }
+        `}
+      </script>
     </>
   );
 };
