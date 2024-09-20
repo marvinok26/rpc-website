@@ -1,3 +1,4 @@
+//ISUD Nakuru
 import img1 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/CBD EXPANSION DESIGN CONCEPT 2.webp';
 import img2 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/CBD EXPANSION DESIGN CONCEPT.webp';
 import img3 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/CBD EXPANSION.webp';

@@ -1,10 +1,10 @@
 // src/components/ProjectDetail.js
 
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import ImageRow from '../components/Images';
+import { useParams, Link } from 'react-router-dom';
 import { projectDetails } from '../data/projectDetailData';
 import { Helmet } from 'react-helmet';
+import ImageRow from '../components/Images';
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -19,11 +19,11 @@ const ProjectDetail = () => {
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
-    setZoomed(false); // Reset zoom on new image click
+    setZoomed(false);
   };
 
   const handleZoomToggle = () => {
-    setZoomed(!zoomed); // Toggle zoom state
+    setZoomed(!zoomed);
   };
 
   const handleClose = () => {
@@ -48,32 +48,45 @@ const ProjectDetail = () => {
             <div
               key={index}
               className="relative block no-underline group cursor-pointer"
-              onClick={() => handleImageClick(image)}
             >
-              <img
-                src={image.src}
-                alt={image.title}
-                loading="lazy" // Lazy loading for images
-                className="w-full h-[500px] object-cover"
-              />
+              {id === "county-spatial-plan" ? (
+                // For County Spatial Plan, use the zoom effect, no link
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  loading="lazy"
+                  className="w-full h-[500px] object-cover cursor-pointer"
+                  onClick={() => handleImageClick(image)}
+                />
+              ) : (
+                // For other categories, link to ImageDetail without zoom
+                <Link to={`/project/${id}/image/${index + 1}`}> {/* Adjusted here */}
+                  <img
+                    src={image.src}
+                    alt={image.title}
+                    loading="lazy"
+                    className="w-full h-[500px] object-cover"
+                  />
+                </Link>
+              )}
             </div>
           ))}
         </div>
         <p className="description">{project.description}</p>
       </div>
 
-      {/* Modal for displaying the clicked image */}
-      {selectedImage && (
+      {/* Modal for displaying zoomed images in County Spatial Plan */}
+      {selectedImage && id === "county-spatial-plan" && (
         <div
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={handleClose} // Clicking outside the image closes the modal
+          onClick={handleClose}
         >
           <div className="relative bg-white p-4 mx-4 sm:mx-8 max-w-full max-h-full overflow-auto">
             <button
               className="absolute top-4 right-4 text-white text-3xl p-2 bg-black rounded-full z-50"
               onClick={(e) => {
-                e.stopPropagation(); // Prevent closing when clicking the button
-                handleClose(); // Close the modal on button click
+                e.stopPropagation();
+                handleClose();
               }}
             >
               &times;
@@ -81,13 +94,13 @@ const ProjectDetail = () => {
             <img
               src={selectedImage.src}
               alt={selectedImage.title}
-              loading="lazy" // Lazy loading for the zoomed image
+              loading="lazy"
               className={`w-[700px] h-[500px] object-contain transition-transform duration-300 ease-in-out cursor-pointer ${
                 zoomed ? 'scale-150' : 'scale-100'
-              }`} // Fixed width and height
+              }`}
               onClick={(e) => {
-                e.stopPropagation(); // Prevent closing when clicking the image
-                handleZoomToggle(); // Zoom in/out on image click
+                e.stopPropagation();
+                handleZoomToggle();
               }}
             />
           </div>
