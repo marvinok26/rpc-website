@@ -49,6 +49,7 @@ const ProjectDetail = () => {
               key={index}
               className="relative block no-underline group cursor-pointer"
             >
+              
               {id === "county-spatial-plan" ? (
                 // For County Spatial Plan, use the zoom effect, no link
                 <img
@@ -61,11 +62,17 @@ const ProjectDetail = () => {
               ) : (
                 // For other categories, link to ImageDetail without zoom
                 <Link to={`/project/${id}/image/${index + 1}`}> {/* Adjusted here */}
+                {/* For non-laptop screens, always show title and dark background */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 sm:bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-300 z-10">
+                <h2 className="text-white text-lg sm:text-xl sm:group-hover:opacity-100 opacity-100 sm:opacity-0 transition-opacity duration-300">
+                  {image.title}
+                </h2>
+                </div>
                   <img
                     src={image.src}
                     alt={image.title}
                     loading="lazy"
-                    className="w-full h-[500px] object-cover"
+                    className="w-full h-[500px] object-cover group-hover:brightness-75 transition-all duration-300"
                   />
                 </Link>
               )}
