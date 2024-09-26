@@ -48,7 +48,7 @@ export const projectDetails = {
     title: "Master Plans",
     images: [
       { src: img14, title: "RED CORAL - TILISI" },
-      { src: img15, title: "ALBIZZIA DOWNS" },
+      { src: img15, title: "ALBIZZIA DOWNS ESTATE" },
     ],
     description: "This is a detailed description of Master Plans.",
   },
