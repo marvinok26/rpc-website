@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import ImageRow from '../components/Images';
 import imageDetails from '../data/imageDetailData'; // Import the image data
 
 const ImageDetail = () => {
@@ -43,14 +42,13 @@ const ImageDetail = () => {
   };
 
   return (
-    <>
+    <div className='mt-[2rem]'>
       <Helmet>
         <title>{imageData.title} - Your Site Name</title>
         <meta name="description" content={`View images for ${imageData.title}`} />
         <link rel="canonical" href={`your-site-url/${id}/${imageId}`} />
       </Helmet>
 
-      <ImageRow />
 
       <div className="pt-20">
         <h1 className="text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center">{imageData.title}</h1>
@@ -89,7 +87,7 @@ const ImageDetail = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -56,12 +56,12 @@ import img36 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE PLAN/Korogocho Land u
 
 const imageDetails = {
   "isud-plans": {
-    1: { title: 'ISUD Nakuru', images: [img1, img2, img3, img4, img5, img6] },
-    2: { title: 'ISUD Naivasha', images: [img7, img8, img9, img10, img11, img12] },
-    3: { title: 'ISUD Nyeri', images: [img13, img14, img15, img16, img17] },
-    4: { title: 'ISUD Mandera', images: [img18, img19] },
-    5: { title: 'ISUD Meru', images: [img20, img21, img22] },
-    6: { title: 'ISUD Mtwapa', images: [img23] },
+    1: { title: 'ISUD Nakuru Town', images: [img1, img2, img3, img4, img5, img6] },
+    2: { title: 'ISUD Naivasha Town', images: [img7, img8, img9, img10, img11, img12] },
+    3: { title: 'ISUD Nyeri Town', images: [img13, img14, img15, img16, img17] },
+    4: { title: 'ISUD Mandera Municipality', images: [img18, img19] },
+    5: { title: 'ISUD Meru Town', images: [img20, img21, img22] },
+    6: { title: 'ISUD Mtwapa Town', images: [img23] },
   },
   "master-plans": {
     1: { title: 'Red Coral - Tilisi', images: [img24] },
