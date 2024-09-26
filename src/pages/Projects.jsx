@@ -1,59 +1,110 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ImageRow from '../components/Images';
+import { projectDetails } from '../data/projectDetailData';
+import { Helmet } from 'react-helmet';
 
-// Standard static image imports
-import img1 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/DJI_0533.webp';
-import img2 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 3 NYERI TILE.webp';
-import img3 from '../Assets/PROJECTS BATCH 1/MASTER PLAN 2 ALBIZZIA TILE.webp';
-import img4 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE PLAN/Korogocho Land use Plan.webp';
+const ProjectDetail = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [zoomed, setZoomed] = useState(false);
 
-const projects = [
-  { slug: 'county-spatial-plan', src: img1, title: 'County Spatial Plan' },
-  { slug: 'isud-plans', src: img2, title: 'ISUD Plans' },
-  { slug: 'master-plans', src: img3, title: 'Master Plans' },
-  { slug: 'urban-renewal-slum-upgrades', src: img4, title: 'Urban Renewal & Slum Upgrades Plans' },
-];
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    setZoomed(false);
+  };
 
-const Projects = () => {
+  const handleZoomToggle = () => {
+    setZoomed(!zoomed);
+  };
+
+  const handleClose = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <>
-      <ImageRow />
-      <h2 className="text-2xl sm:text-4xl my-6 sm:my-8 text-[#4263A5] text-center">PROJECTS</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-5 m-16">
-        {projects.map((project) => (
-          <Link to={`/project/${project.slug}`} key={project.slug} className="relative block no-underline">
-            <img
-              src={project.src}
-              loading="lazy"
-              alt={`${project.title}, a project in the category of ${project.title}`}
-              className="w-full h-[500px] object-cover filter brightness-75 transition duration-300 ease-in-out md:w-[700px] lg:w-auto lg:h-[500px] sm:brightness-100 sm:hover:brightness-75"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white opacity-100 sm:opacity-0 sm:hover:opacity-100 sm:transition-opacity sm:duration-300 sm:ease-in-out">
-              <div className="text-xl text-center">{project.title}</div>
+      <Helmet>
+        <title>Projects | Real Plan Consultants</title>
+        <meta name="description" content="Explore various projects by Real Plan Consultants including County Spatial Plans, ISUD Plans, Master Plans, and Urban Renewal & Slum Upgrades." />
+      </Helmet>
+
+      <div className="project-detail-container mt-[8rem]">
+        {Object.keys(projectDetails).map((projectId) => {
+          const project = projectDetails[projectId];
+          return (
+            <div key={projectId} className="project-section mb-12">
+              <h1 className="text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center">{project.title}</h1>
+
+              {/* Center images in the grid and apply fixed height and width */}
+              <div className="flex flex-wrap justify-center gap-4 p-4">
+                {project.images.map((image, index) => (
+                  <div key={index} className="relative block no-underline group cursor-pointer">
+                    {projectId === 'county-spatial-plan' ? (
+                      // For County Spatial Plan, use zoom effect without link
+                      <img
+                        src={image.src}
+                        alt={image.title}
+                        loading="lazy"
+                        className="w-[400px] h-[400px] object-cover cursor-pointer"
+                        onClick={() => handleImageClick(image)}
+                      />
+                    ) : (
+                      // For other categories, link to ImageDetail without zoom
+                      <Link to={`/project/${projectId}/image/${index + 1}`}>
+                        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-75 transition-opacity duration-300 z-10">
+                          <h2 className="text-white text-lg sm:text-xl transition-opacity duration-300">
+                            {image.title}
+                          </h2>
+                        </div>
+                        <img
+                          src={image.src}
+                          alt={image.title}
+                          loading="lazy"
+                          className="w-[400px] h-[400px] object-cover group-hover:brightness-75 transition-all duration-300"
+                        />
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="description text-center">{project.description}</p>
             </div>
-          </Link>
-        ))}
+          );
+        })}
       </div>
 
-      {/* Structured Data for SEO */}
-      <script type="application/ld+json">
-        {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Project",
-            "name": "Real Plan Consultants Ltd Projects",
-            "about": "Real Plan Consultants Ltd projects include County Spatial Plan, ISUD Plans, Master Plans, and Urban Renewal & Slum Upgrades.",
-            "url": "https://www.realplanconsultants.com/projects",
-            "creator": {
-              "@type": "Organization",
-              "name": "Real Plan Consultants Ltd"
-            }
-          }
-        `}
-      </script>
+      {/* Modal for displaying zoomed images in County Spatial Plan */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          onClick={handleClose}
+        >
+          <div className="relative bg-white p-4 mx-4 sm:mx-8 max-w-full max-h-full overflow-auto">
+            <button
+              className="absolute top-4 right-4 text-white text-3xl p-2 bg-black rounded-full z-50"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleClose();
+              }}
+            >
+              &times;
+            </button>
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.title}
+              loading="lazy"
+              className={`w-[700px] h-[500px] object-contain transition-transform duration-300 ease-in-out cursor-pointer ${
+                zoomed ? 'scale-150' : 'scale-100'
+              }`}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleZoomToggle();
+              }}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 };
 
-export default Projects;
+export default ProjectDetail;

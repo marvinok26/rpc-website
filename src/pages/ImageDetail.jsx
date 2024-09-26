@@ -22,7 +22,7 @@ const ImageDetail = () => {
         src={image}
         alt={`${imageData.title} - image ${index + 1}`} // More descriptive alt text
         loading="lazy" // Lazy load images
-        className="w-full h-72 sm:h-96 object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110 cursor-pointer"
+        className="w-[400px] h-[400px] object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110 cursor-pointer"
         onClick={() => setSelectedImage(image)} // Set clicked image as selected
       />
     ));
@@ -51,11 +51,12 @@ const ImageDetail = () => {
       </Helmet>
 
       <ImageRow />
+
       <div className="pt-20">
         <h1 className="text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center">{imageData.title}</h1>
 
-        {/* Image Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5">
+        {/* Image Grid with Centered Images and Fixed Size */}
+        <div className="flex flex-wrap justify-center gap-4 p-5">
           {memoizedImages}
         </div>
       </div>
@@ -82,7 +83,7 @@ const ImageDetail = () => {
               alt={`Selected view of ${imageData.title}`} // More descriptive alt text
               className={`w-[700px] h-[500px] object-contain transition-transform duration-300 ease-in-out cursor-pointer ${
                 isZoomedIn ? 'scale-150' : 'scale-100'
-              }`} // Fixed width and height
+              }`} // Fixed width and height for zoomed image
               onClick={toggleZoom} // Toggle zoom on image click
             />
           </div>

@@ -64,12 +64,12 @@ const imageDetails = {
     6: { title: 'ISUD Mtwapa', images: [img23] },
   },
   "master-plans": {
-    1: { title: 'Master Plan 1', images: [img24] },
-    2: { title: 'Master Plan 2', images: [img25, img26, img27, img28] },
+    1: { title: 'Red Coral - Tilisi', images: [img24] },
+    2: { title: 'Albizzia Downs', images: [img25, img26, img27, img28] },
   },
   "urban-renewal-slum-upgrades": {
-    1: { title: 'Urban Renewal', images: [img29, img30, img31, img32, img33, img34] },
-    2: { title: 'Slum Upgrade Plan', images: [img35, img36] },
+    1: { title: 'Eastlands Nairobi Urban Renewal', images: [img29, img30, img31, img32, img33, img34] },
+    2: { title: 'Korogosho Slum Upgrade Program', images: [img35, img36] },
   },
 };
 

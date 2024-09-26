@@ -35,28 +35,28 @@ export const projectDetails = {
   "isud-plans": {
     title: "ISUD Plans",
     images: [
-      { src: img8, title: "NAKURU" },
-      { src: img9, title: "NAIVASHA" },
-      { src: img10, title: "NYERI" },
-      { src: img11, title: "MANDERA" },
-      { src: img12, title: "MERU" },
-      { src: img13, title: "MTWAPA" },
+      { src: img8, title: "NAKURU TOWN" },
+      { src: img9, title: "NAIVASHA TOWN" },
+      { src: img10, title: "NYERI TOWN" },
+      { src: img11, title: "MANDERA MUNICIPALITY" },
+      { src: img12, title: "MERU TOWN" },
+      { src: img13, title: "MTWAPA TOWN" },
     ],
     description: "This is a detailed description of ISUD Plans.",
   },
   "master-plans": {
     title: "Master Plans",
     images: [
-      { src: img14, title: "MASTER PLAN 1" },
-      { src: img15, title: "MASTER PLAN 2" },
+      { src: img14, title: "RED CORAL - TILISI" },
+      { src: img15, title: "ALBIZZIA DOWNS" },
     ],
     description: "This is a detailed description of Master Plans.",
   },
   "urban-renewal-slum-upgrades": {
     title: "Urban Renewal & Slum Upgrades",
     images: [
-      { src: img16, title: "URBAN RENEWAL" },
-      { src: img17, title: "SLUM UPGRADE" },
+      { src: img16, title: "EAST LANDS NAIROBI URBAN RENEWAL" },
+      { src: img17, title: "KOROGOSHO SLUM UPGRADE PROGRAM" },
     ],
     description: "This is a detailed description of Urban Renewal & Slum Upgrades.",
   },
