@@ -91,13 +91,13 @@ const Navbar = () => {
               </Link>
             </li>
             {isDropdownOpen && (
-              <div className="absolute left-0 mt-2 bg-black/10 text-white p-2 rounded-md z-[1000]">
+              <div className="absolute left-0 -ml-[10px] -mt-2 bg-black/0 text-white p-2 rounded-md z-[1000] ">
                 <li><Link
                   to="/clients"
-                  className={`${currentPath === '/clients' ? 'text-[#e3364d]' : 'text-white'} font-bold hover:text-gray-400`}
+                  className={`${currentPath === '/clients' ? 'text-[#e3364d]' : 'text-white'} font-bold hover:text-gray-400 text-nowrap`}
                   onClick={closeNavHandler}
                 >
-                  Clients
+                  Our Clients
                 </Link></li>
               </div>
             )}
