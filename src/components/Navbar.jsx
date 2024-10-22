@@ -5,7 +5,6 @@ import { FaBars } from 'react-icons/fa';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 import logo from '../Assets/Images/Logo/RPC_LTD_LOGO-removebg-preview.png';
-import IconButton from './IconButton';
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -58,7 +57,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between p-2.5 sm:p-10 bg-black/20 absolute w-screen top-0 left-0 z-[1000] h-[85px]">
+    <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between p-2.5 sm:p-10 bg-black/80  h-[85px]">
       <Link to="/" className="flex flex-col items-center" onClick={closeNavHandler}>
         <img src={logo} alt="Logo" className="h-[60px] w-[65px]" />
         <h5 className="text-[14px] text-white">Real Plan Consultants Ltd</h5>
@@ -68,7 +67,7 @@ const Navbar = () => {
         <ul className="flex-grow flex justify-center gap-5 list-none">
           <li><Link
             to="/"
-            className={`${currentPath === '/' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
+            className={`${currentPath === '/' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
             onClick={closeNavHandler}
           >
             Home
@@ -83,7 +82,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/about"
-                className={`${currentPath === '/about' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
+                className={`${currentPath === '/about' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
                 aria-expanded={isDropdownOpen}
                 aria-haspopup="true"
                 onClick={closeNavHandler}
@@ -95,7 +94,7 @@ const Navbar = () => {
               <div className="absolute left-0 mt-2 bg-black/10 text-white p-2 rounded-md z-[1000]">
                 <li><Link
                   to="/clients"
-                  className={`${currentPath === '/clients' ? 'text-black' : 'text-white'} font-bold hover:text-gray-400`}
+                  className={`${currentPath === '/clients' ? 'text-[#e3364d]' : 'text-white'} font-bold hover:text-gray-400`}
                   onClick={closeNavHandler}
                 >
                   Clients
@@ -106,21 +105,21 @@ const Navbar = () => {
 
           <li><Link
             to="/services"
-            className={`${currentPath === '/services' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
+            className={`${currentPath === '/services' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
             onClick={closeNavHandler}
           >
             Services
           </Link></li>
           <li><Link
             to="/projects"
-            className={`${currentPath === '/projects' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
+            className={`${currentPath === '/projects' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
             onClick={closeNavHandler}
           >
             Projects
           </Link></li>
           <li><Link
             to="/contact"
-            className={`${currentPath === '/contact' ? 'text-black' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
+            className={`${currentPath === '/contact' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
             onClick={closeNavHandler}
           >
             Contact
@@ -128,11 +127,7 @@ const Navbar = () => {
         </ul>
       )}
 
-      {!isMobileView && (
-        // <button className="bg-[#4263A5] text-white rounded-lg py-2.5 px-5 font-bold transition-all duration-300 hover:bg-[#6190ec]">
-          <IconButton />
-        // </button>
-      )}
+      
 
       {isMobileView && (
         <button

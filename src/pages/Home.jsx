@@ -98,7 +98,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="carousel relative w-screen h-[740px] -mt-[50px] overflow-hidden" ref={carouselRef}>
+      <div className="carousel relative w-screen h-[740px] overflow-hidden" ref={carouselRef}>
         <div className="list absolute inset-0 flex" ref={sliderRef}>
           {carouselData.map((item, index) => (
             <div className="item absolute inset-0 w-full h-full" key={index}>
