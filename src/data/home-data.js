@@ -7,37 +7,36 @@ import image6 from '../Assets/Images/buildings/crane-houses-7518536_1280.jpg';
 import image7 from '../Assets/Images/buildings/map-11043_1280.jpg';
 import image8 from '../Assets/Images/buildings/nyc-4854718_1280.jpg';
 import image9 from '../Assets/Images/buildings/skyscraper-8366040_1280.jpg';
-
 export const carouselData = [
   {
     imgSrc: image1,
     company: 'Real Plan Consultants Ltd.',
-    title: 'Transform Spaces: Crafting Sustainable Futures Together',
-    description: 'We design and plan providing unique adaptive solutions in different regions. Our footprint is evident from the coastal sandy beaches, to the lush green highlands of Mount Kenya, the scenic views of Rift Valley, the lagoons of Northern Kenya and the bustling streets of Central Nairobi.',
+    title: 'Transforming Spaces for a Sustainable Future',
+    description: 'We provide innovative planning solutions across Kenya, addressing unique environmental challenges. Our work spans from sandy beaches to lush highlands, ensuring sustainability in every project we undertake. With a focus on community needs, we strive to enhance the quality of life through thoughtful design.',
   },
   {
     imgSrc: image2,
     company: 'Real Plan Consultants Ltd.',
-    title: 'Innovative Planning for a Sustainable Future',
-    description: 'Real Plan Consultants Ltd is one of the leading physical & land use planning and environmental consultancy companies in Kenya.',
+    title: 'Planning for a Sustainable Tomorrow',
+    description: 'As a leading consultancy in physical and land use planning, we focus on creating adaptable strategies tailored to specific regions. Our expertise drives successful outcomes across the nation, ensuring that every project is environmentally sound. Together, we can build a brighter future for all communities.',
   },
   {
     imgSrc: image3,
     company: 'Real Plan Consultants Ltd.',
-    title: 'Shaping Kenya\'s Landscapes: 20 Years of Excellence',
-    description: 'Founded in 2003, we have been offering consultancy services for more than 20 years.',
+    title: 'Shaping Landscapes for Over 20 Years',
+    description: 'With over two decades of experience, we offer expert consultancy services that shape the landscapes of Kenya. Our commitment is to enhancing the environment through innovative planning and community engagement. We believe in a collaborative approach to achieve sustainable development goals.',
   },
   {
     imgSrc: image4,
     company: 'Real Plan Consultants Ltd.',
-    title: 'From Coastlines to Highlands: Transforming Spaces',
-    description: 'Over the years, we have developed a strong network that is able to handle diverse assignments across the country.',
+    title: 'Transforming Spaces Across Kenya',
+    description: 'We have built a robust network that handles diverse assignments nationwide, from urban developments to rural planning initiatives. Our goal is to create impactful changes in both urban and rural environments alike. By fostering collaboration, we ensure that every voice is heard in the planning process.',
   },
   {
     imgSrc: image5,
     company: 'Real Plan Consultants Ltd.',
-    title: 'Expert Solutions for Every Environment in Kenya',
-    description: 'We seek to create a platform for best practices, sustainable and attractive environments in land use planning and environmental consultancy.',
+    title: 'Creating Sustainable Environments',
+    description: 'Our mission is to foster best practices in land use planning while prioritizing environmental consultancy. We aim to ensure a balanced relationship with nature, promoting biodiversity and sustainability. Every project we take on is an opportunity to create spaces that benefit both people and the planet.',
   },
 ];
 

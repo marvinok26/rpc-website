@@ -1,31 +1,88 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import Loader from './components/Loader.jsx';
 
-import Layout from './components/Layout.jsx';
-import Home from './pages/Home';
-import ErrorPage from './pages/ErrorPage';
-import About from './pages/About';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import Projects from './pages/Projects';
-import Clients from './pages/Clients.jsx';
-import ProjectDetail from './pages/ProjectDetail.jsx';
-import ImageDetail from './pages/ImageDetail.jsx'; // New Image Detail Page
+// Lazy load components for better performance
+const Layout = lazy(() => import('./components/Layout.jsx'));
+const Home = lazy(() => import('./pages/Home'));
+const ErrorPage = lazy(() => import('./pages/ErrorPage'));
+const About = lazy(() => import('./pages/About'));
+const Services = lazy(() => import('./pages/Services'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Clients = lazy(() => import('./pages/Clients.jsx'));
+const ImageDetail = lazy(() => import('./pages/ImageDetail.jsx'));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
+    element: (
+      <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader /></div>}>
+        <Layout />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader /></div>}>
+        <ErrorPage />
+      </Suspense>
+    ),
     children: [
-      { index: true, element: <Home /> },
-      { path: "about", element: <About /> },
-      { path: "services", element: <Services /> },
-      { path: "projects", element: <Projects /> },
-      { path: "contact", element: <Contact /> },
-      { path: "clients", element: <Clients /> },
-      { path: "project/:id", element: <ProjectDetail /> }, // Use project name as ID
-      { path: "project/:id/image/:imageId", element: <ImageDetail /> }, // New route for image details
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader /></div>}>
+            <Home />
+          </Suspense>
+        ),
+      },
+      {
+        path: "about",
+        element: (
+          <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader /></div>}>
+            <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: "services",
+        element: (
+          <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader /></div>}>
+            <Services />
+          </Suspense>
+        ),
+      },
+      {
+        path: "projects",
+        element: (
+          <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader /></div>}>
+            <Projects />
+          </Suspense>
+        ),
+      },
+      {
+        path: "contact",
+        element: (
+          <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader /></div>}>
+            <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "clients",
+        element: (
+          <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader /></div>}>
+            <Clients />
+          </Suspense>
+        ),
+      },
+      {
+        path: "project/:id/image/:imageId",
+        element: (
+          <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader /></div>}>
+            <ImageDetail />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);

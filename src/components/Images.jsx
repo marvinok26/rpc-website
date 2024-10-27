@@ -23,7 +23,6 @@ const ImageRow = () => {
           src={image.src}
           alt={image.alt}
           key={index}
-          loading="lazy" // Lazy loading for better performance
           className="image w-[200px] h-[200px] object-cover flex-1 border-none inline-block sm:w-40 sm:h-48 xs:w-32 xs:h-32"
         />
       ))}

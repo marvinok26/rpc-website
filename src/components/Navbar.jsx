@@ -19,20 +19,13 @@ const Navbar = () => {
     const handleResize = () => {
       const isMobile = window.innerWidth <= 800;
       setIsMobileView(isMobile);
-      if (!isMobile) {
-        setIsNavShowing(true);
-      } else {
-        setIsNavShowing(false); // Ensure menu is initially closed on mobile
-      }
+      setIsNavShowing(!isMobile);
     };
 
     handleResize(); // Set the initial state
 
     window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const closeNavHandler = () => {
@@ -42,98 +35,85 @@ const Navbar = () => {
   };
 
   const handleMouseEnter = () => {
-    if (dropdownTimeout) {
-      clearTimeout(dropdownTimeout); // Clear any scheduled closing
-    }
+    if (dropdownTimeout) clearTimeout(dropdownTimeout);
     setDropdownOpen(true);
   };
 
   const handleMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      setDropdownOpen(false);
-    }, 300); // Delay the dropdown closing by 300ms
-
+    const timeout = setTimeout(() => setDropdownOpen(false), 300);
     setDropdownTimeout(timeout);
   };
 
+  // Navigation Links Data
+  const navLinks = [
+    { path: '/', label: 'Home' },
+    {
+      path: '/about',
+      label: 'About Us',
+      hasDropdown: true,
+      dropdownItems: [
+        { path: '/clients', label: 'Our Clients' }
+      ]
+    },
+    { path: '/services', label: 'Services' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/contact', label: 'Contact Us' },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between p-2.5 sm:p-10 bg-black/80  h-[85px]">
+    <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between p-1 sm:p-10 bg-white h-[60px]">
       <Link to="/" className="flex flex-col items-center" onClick={closeNavHandler}>
-        <img src={logo} alt="Logo" className="h-[60px] w-[65px]" />
-        <h5 className="text-[14px] text-white">Real Plan Consultants Ltd</h5>
+        <img src={logo} alt="Logo" className="h-[50px] w-[60px]" />
+        <h5 className="text-[12px] text-black">Real Plan Consultants Ltd</h5>
       </Link>
 
       {isNavShowing && (
-        <ul className="flex-grow flex justify-center gap-5 list-none">
-          <li><Link
-            to="/"
-            className={`${currentPath === '/' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
-            onClick={closeNavHandler}
-          >
-            Home
-          </Link></li>
-
-          {/* Dropdown section */}
-          <div 
-            className="relative" 
-            onMouseEnter={handleMouseEnter} 
-            onMouseLeave={handleMouseLeave}
-          >
-            <li>
-              <Link
-                to="/about"
-                className={`${currentPath === '/about' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
-                aria-expanded={isDropdownOpen}
-                aria-haspopup="true"
-                onClick={closeNavHandler}
-              >
-                About Us <span className="ml-1 transition-transform duration-300 text-[17px] font-bold"><MdKeyboardArrowRight className={`${isDropdownOpen ? 'rotate-90' : ''}`} /></span>
-              </Link>
-            </li>
-            {isDropdownOpen && (
-              <div className="absolute left-0 -ml-[10px] -mt-2 bg-black/0 text-white p-2 rounded-md z-[1000] ">
-                <li><Link
-                  to="/clients"
-                  className={`${currentPath === '/clients' ? 'text-[#e3364d]' : 'text-white'} font-bold hover:text-gray-400 text-nowrap`}
+        <ul className="flex-grow flex justify-center gap-9 list-none">
+          {navLinks.map((link, index) => (
+            <div
+              key={index}
+              className="relative"
+              onMouseEnter={link.hasDropdown ? handleMouseEnter : null}
+              onMouseLeave={link.hasDropdown ? handleMouseLeave : null}
+            >
+              <li>
+                <Link
+                  to={link.path}
+                  className={`${currentPath === link.path ? 'text-[#e3364d]' : 'text-black'} text-[15px] font-bold flex items-center hover:text-gray-400`}
                   onClick={closeNavHandler}
+                  aria-expanded={link.hasDropdown ? isDropdownOpen : undefined}
+                  aria-haspopup={link.hasDropdown ? 'true' : undefined}
                 >
-                  Our Clients
-                </Link></li>
-              </div>
-            )}
-          </div>
-
-          <li><Link
-            to="/services"
-            className={`${currentPath === '/services' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
-            onClick={closeNavHandler}
-          >
-            Services
-          </Link></li>
-          <li><Link
-            to="/projects"
-            className={`${currentPath === '/projects' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
-            onClick={closeNavHandler}
-          >
-            Projects
-          </Link></li>
-          <li><Link
-            to="/contact"
-            className={`${currentPath === '/contact' ? 'text-[#e3364d]' : 'text-white'} font-bold flex items-center hover:text-gray-400`}
-            onClick={closeNavHandler}
-          >
-            Contact
-          </Link></li>
+                  {link.label}
+                  {link.hasDropdown && (
+                    <span className="ml-1 transition-transform duration-300 text-[15px] font-bold">
+                      <MdKeyboardArrowRight className={`${isDropdownOpen ? 'rotate-90' : ''}`} />
+                    </span>
+                  )}
+                </Link>
+              </li>
+              {link.hasDropdown && isDropdownOpen && (
+                <div className="absolute left-0 -ml-[10px] -mt-2 text-black p-2 rounded-md z-[1000]">
+                  {link.dropdownItems.map((dropdownItem, i) => (
+                    <li key={i}>
+                      <Link
+                        to={dropdownItem.path}
+                        className={`${currentPath === dropdownItem.path ? 'text-[#e3364d]' : 'text-black'} text-[15px] font-bold hover:text-gray-400 text-nowrap`}
+                        onClick={closeNavHandler}
+                      >
+                        {dropdownItem.label}
+                      </Link>
+                    </li>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
         </ul>
       )}
 
-      
-
       {isMobileView && (
-        <button
-          className="nav__toggle-btn"
-          onClick={() => setIsNavShowing(!isNavShowing)}
-        >
+        <button className="nav__toggle-btn" onClick={() => setIsNavShowing(!isNavShowing)}>
           {isNavShowing ? <AiOutlineClose /> : <FaBars />}
         </button>
       )}

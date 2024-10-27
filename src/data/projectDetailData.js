@@ -1,9 +1,4 @@
 import img1 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/Agro_Ecological Zones_ AUGUST 2021.webp';
-import img2 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/County Land Use Plan.webp';
-import img3 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/DJI_0206.webp';
-import img4 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/DJI_0533.webp';
-import img5 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/DJI_0861.webp';
-import img6 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/Ecotourism Model.webp';
 
 import img8 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/CBD EXPANSION DESIGN CONCEPT 2.webp';
 import img9 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/CBD EXPANSION DESIGN CONCEPT.webp';
@@ -23,12 +18,7 @@ export const projectDetails = {
   "county-spatial-plan": {
     title: "County Spatial Plan",
     images: [
-      { src: img1, title: "Agro Ecological Zones" },
-      { src: img2, title: "County Land Use Plan" },
-      { src: img3, title: "DJI 0206" },
-      { src: img4, title: "DJI 0533" },
-      { src: img5, title: "DJI 0861" },
-      { src: img6, title: "Ecotourism Model" },
+      { src: img1, title: "County Spatial Plans" },
     ],
     description: "This is a detailed description of County Spatial Plan.",
   },

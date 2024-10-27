@@ -1,3 +1,4 @@
+
 //ISUD Nakuru
 import img1 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/CBD EXPANSION DESIGN CONCEPT 2.webp';
 import img2 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/CBD EXPANSION DESIGN CONCEPT.webp';
@@ -54,7 +55,19 @@ import img34 from '../Assets/PROJECTS BATCH 1/URBAN RENEWAL & REDEVELOPLENT PLAN
 import img35 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE PLAN/KOROGOCHO VILLAGES.webp';
 import img36 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE PLAN/Korogocho Land use Plan.webp';
 
+//County spacial plan
+import img37 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/Agro_Ecological Zones_ AUGUST 2021.webp';
+import img38 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/County Land Use Plan.webp';
+import img39 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/DJI_0206.webp';
+import img40 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/DJI_0533.webp';
+import img41 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/DJI_0861.webp';
+import img42 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/Ecotourism Model.webp';
+
 const imageDetails = {
+  "county-spatial-plan": { // Changed to spatial for consistency
+    1: { title: 'County Spatial Plan', images: [img37, img38, img39, img40, img41, img42] },
+  },
+
   "isud-plans": {
     1: { title: 'ISUD Nakuru Town', images: [img1, img2, img3, img4, img5, img6] },
     2: { title: 'ISUD Naivasha Town', images: [img7, img8, img9, img10, img11, img12] },
