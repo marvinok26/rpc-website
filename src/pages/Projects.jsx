@@ -38,7 +38,6 @@ const ProjectDetail = () => {
                   </div>
                 ))}
               </div>
-              <p className="description text-center">{project.description}</p>
             </div>
           );
         })}

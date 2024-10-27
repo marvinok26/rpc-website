@@ -7,6 +7,7 @@ import img4 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/Nakuru_LandUse A3.w
 import img5 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/TOD.webp';
 import img6 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 1 NKU/Transport Plan.webp';
 
+
 // ISUD Naivasha
 import img7 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 2 NVS/CBD STRATEGY.webp';
 import img8 from '../Assets/PROJECTS BATCH 1/ISUD PLAN 2 NVS/DENSIFICATION.webp';
@@ -66,6 +67,7 @@ import img42 from '../Assets/PROJECTS BATCH 1/COUNTY SPATIAL PLAN/Ecotourism Mod
 const imageDetails = {
   "county-spatial-plan": { // Changed to spatial for consistency
     1: { title: 'County Spatial Plan', images: [img37, img38, img39, img40, img41, img42] },
+    description: "this is a description",
   },
 
   "isud-plans": {
@@ -75,14 +77,17 @@ const imageDetails = {
     4: { title: 'ISUD Mandera Municipality', images: [img18, img19] },
     5: { title: 'ISUD Meru Town', images: [img20, img21, img22] },
     6: { title: 'ISUD Mtwapa Town', images: [img23] },
+    description: "this is a description",
   },
   "master-plans": {
     1: { title: 'Red Coral - Tilisi', images: [img24] },
     2: { title: 'Albizzia Downs', images: [img25, img26, img27, img28] },
+    description: "this is a description",
   },
   "urban-renewal-slum-upgrades": {
     1: { title: 'Eastlands Nairobi Urban Renewal', images: [img29, img30, img31, img32, img33, img34] },
     2: { title: 'Korogosho Slum Upgrade Program', images: [img35, img36] },
+    description: "this is a description",
   },
 };
 
