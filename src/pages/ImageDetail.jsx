@@ -1,53 +1,80 @@
 import React, { useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import imageDetails from '../data/imageDetailData'; // Import the image data
+import imageDetails from '../data/imageDetailData';
+import { ImNext } from "react-icons/im";
+import { BiSkipPreviousCircle } from "react-icons/bi";
 
 const ImageDetail = () => {
-  const { id, imageId } = useParams(); // 'id' is project slug, 'imageId' is the image index
-  const projectData = imageDetails[id]; // Get the project data for the given id
-  const imageData = projectData ? projectData[imageId] : null; // Get the specific image data for the project
+  const { id, imageId } = useParams();
+  const projectData = imageDetails[id];
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const [isZoomedIn, setIsZoomedIn] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
 
-  // State to manage the clicked image and zoom toggle
-  const [selectedImageIndex, setSelectedImageIndex] = useState(null); // Default to null to hide image initially
-  const [isZoomedIn, setIsZoomedIn] = useState(false); // Zoom state
-
-  // Memoize the images for performance
+  const imageData = projectData && projectData.projects ? projectData.projects[imageId] : null;
   const memoizedImages = useMemo(() => {
-    if (!imageData || !imageData.images) return []; // Fallback if imageData or images are not available
-
-    return imageData.images.map((image) => image); // Map to an array of image URLs
+    if (!imageData || !imageData.images) return [];
+    return imageData.images.map((image) => image.src);
   }, [imageData]);
 
-  // Determine the cover image (first image in the category)
-  const coverImage = projectData && projectData[1] ? projectData[1].images[0] : null;
+  const coverImage = imageData?.images?.[0]?.src || null;
 
   if (!imageData) {
-    return <div>Image not found</div>; // Return early if imageData is not found
+    return <div>Image not found</div>;
   }
 
-  // Handlers
   const closeImage = () => {
-    setSelectedImageIndex(null); // Reset when closing
-    setIsZoomedIn(false); // Reset zoom when closing the image
+    setSelectedImageIndex(null);
+    setIsZoomedIn(false);
+    setPosition({ x: 0, y: 0 });
   };
 
   const toggleZoom = () => {
-    setIsZoomedIn((prev) => !prev); // Toggle zoom state
+    setIsZoomedIn(!isZoomedIn);
+    setPosition({ x: 0, y: 0 }); // Reset position when toggling zoom
+  };
+
+  const handleMouseDown = (e) => {
+    if (isZoomedIn) {
+      setIsDragging(true);
+      setStartPosition({ x: e.clientX - position.x, y: e.clientY - position.y });
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (isDragging) {
+      setPosition({
+        x: e.clientX - startPosition.x,
+        y: e.clientY - startPosition.y,
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
   };
 
   const showNextImage = () => {
-    const nextIndex = (selectedImageIndex + 1) % memoizedImages.length; // Wrap around to the first image
-    setSelectedImageIndex(nextIndex);
+    if (selectedImageIndex < memoizedImages.length - 1) {
+      setSelectedImageIndex((prev) => prev + 1);
+      setIsZoomedIn(false); // Reset zoom
+      setPosition({ x: 0, y: 0 }); // Reset position
+    }
   };
-
-  const showPreviousImage = () => {
-    const prevIndex = (selectedImageIndex - 1 + memoizedImages.length) % memoizedImages.length; // Wrap around to the last image
-    setSelectedImageIndex(prevIndex);
+  
+  const showPrevImage = () => {
+    if (selectedImageIndex > 0) {
+      setSelectedImageIndex((prev) => prev - 1);
+      setIsZoomedIn(false); // Reset zoom
+      setPosition({ x: 0, y: 0 }); // Reset position
+    }
   };
 
   return (
-    <div className='mt-[2rem]'>
+    <div className="mt-[2rem]">
       <Helmet>
         <title>{imageData.title || 'Default Title'}</title>
         <meta name="description" content={`View images for ${imageData.title || 'Default Description'}`} />
@@ -55,73 +82,82 @@ const ImageDetail = () => {
       </Helmet>
 
       <div className="pt-20">
-        <h1 className="text-2xl sm:text-4xl sm:my-8 text-[#4263A5] text-center">{imageData.title}</h1>
+        <div className="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10 mt-[5rem]">
+          <img src={coverImage} alt="cover Image" className="absolute inset-0 w-full h-full object-cover" />
 
-        {/* Image and description layout */}
-        <div className="flex flex-wrap justify-center items-start gap-4 p-5">
-          {/* Image Section - Display only a clickable area for the image */}
+          <div className="h-[300px] relative z-50 max-w-6xl mx-auto flex flex-col justify-center items-start text-left text-white p-6">
+            <h1 className="text-10xl sm:text-5xl font-extrabold mb-6">{imageData.title}</h1>
+          </div>
+        </div>
+
+        <div className="flex justify-center items-start gap-8 p-5">
+          {/* Image Section */}
           <div className="flex-shrink-0 w-[400px] h-[400px]">
-            {/* Display the first image from the category */}
             <button
-              onClick={() => setSelectedImageIndex(0)} // Click to show the first image in modal
+              onClick={() => setSelectedImageIndex(0)}
               className="w-full h-full bg-gray-200 flex items-center justify-center cursor-pointer"
             >
               {coverImage ? (
                 <img className="w-full h-full object-cover" src={coverImage} alt="Cover" />
               ) : (
-                <span>No Image Available</span> // Fallback if there's no image
+                <span>No Image Available</span>
               )}
             </button>
           </div>
 
-          {/* Description Section */}
-          <div className="flex-grow p-4">
-            <p>{projectData.description}</p> {/* Use the description from projectData */}
+          {/* Text Section */}
+          <div className="flex-grow space-y-4">
+            <div><h2 className="font-bold">Assignment:</h2><p>{imageData.details?.assignment || 'N/A'}</p></div>
+            <div><h2 className="font-bold">Client:</h2><p>{imageData.details?.client || 'N/A'}</p></div>
+            <div><h2 className="font-bold">Period:</h2><p>{imageData.details?.period || 'N/A'}</p></div>
+            <div><h2 className="font-bold">Status:</h2><p>{imageData.details?.status || 'N/A'}</p></div>
+            <div><h2 className="font-bold">Project Outputs:</h2><p>{imageData.details?.projectOutputs.join(', ') || 'N/A'}</p></div>
+            <div><h2 className="font-bold">Description:</h2><p>{imageData.details?.description || 'No description available.'}</p></div>
           </div>
         </div>
       </div>
 
       {/* Full-screen image modal */}
       {selectedImageIndex !== null && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={closeImage} // Close modal when clicking outside the image
-        >
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={closeImage}>
           <div
             className="relative bg-white p-4 mx-4 sm:mx-8 max-w-full max-h-full overflow-auto"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               className="fixed top-4 right-4 text-white text-3xl p-2 bg-black rounded-full z-50"
-              onClick={closeImage} // Close button
+              onClick={closeImage}
             >
               &times;
             </button>
 
-            <button
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl"
-              onClick={showPreviousImage} // Previous image button
-              disabled={memoizedImages.length <= 1} // Disable if there's only one image
-            >
-              &lt;
-            </button>
-
             <img
               src={memoizedImages[selectedImageIndex]}
-              alt={`Selected view of ${imageData.title}`} // More descriptive alt text
+              alt={`Selected view of ${imageData.title}`}
               className={`w-[700px] h-[500px] object-contain transition-transform duration-300 ease-in-out cursor-pointer ${
                 isZoomedIn ? 'scale-150' : 'scale-100'
-              }`} // Fixed width and height for zoomed image
-              onClick={toggleZoom} // Toggle zoom on image click
+              }`}
+              onClick={toggleZoom}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              style={{
+                transform: `scale(${isZoomedIn ? 1.5 : 1}) translate(${position.x}px, ${position.y}px)`,
+                cursor: isZoomedIn ? 'grab' : 'pointer',
+              }}
             />
 
-            <button
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl"
-              onClick={showNextImage} // Next image button
-              disabled={memoizedImages.length <= 1} // Disable if there's only one image
-            >
-              &gt;
-            </button>
+            {selectedImageIndex > 0 && (
+              <button className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl" onClick={showPrevImage}>
+                <BiSkipPreviousCircle className='text-green-500'/>
+              </button>
+            )}
+
+            {selectedImageIndex < memoizedImages.length - 1 && (
+              <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl" onClick={showNextImage}>
+                <ImNext className='text-green-500'/>
+              </button>
+            )}
           </div>
         </div>
       )}

@@ -79,7 +79,7 @@ const ProjectDetail = () => {
                 {/* More Info Button */}
                 <Link
                   to={`/project/${projectId}`}
-                  className="inline-block bg-purple-700 text-white text-center py-2 px-4 hover:bg-purple-600 transition-colors"
+                  className="inline-block bg-green-500 text-white text-center py-2 px-4 hover:bg-green-700 transition-colors"
                 >
                   More Info
                 </Link>
