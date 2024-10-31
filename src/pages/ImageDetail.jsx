@@ -74,14 +74,14 @@ const ImageDetail = () => {
   };
 
   return (
-    <div className="mt-[2rem]">
+    <div className="mt-[1rem]">
       <Helmet>
         <title>{imageData.title || 'Default Title'}</title>
         <meta name="description" content={`View images for ${imageData.title || 'Default Description'}`} />
         <link rel="canonical" href={`your-site-url/${id}/${imageId}`} />
       </Helmet>
 
-      <div className="pt-20">
+      <div className="pt-2">
         <div className="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10 mt-[5rem]">
           <img src={coverImage} alt="cover Image" className="absolute inset-0 w-full h-full object-cover" />
 

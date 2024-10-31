@@ -10,11 +10,29 @@ const MoreInfo = () => {
   if (!projectImages) return <p>Project not found</p>;
 
   return (
-    <div className="more-info-container mt-[8rem] p-8">
-      <h1 className="text-3xl font-bold mb-8">{id.replace(/-/g, ' ').toUpperCase()}</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="more-info-container mt-[6rem] ">
+      <div className="relative font-sans">
+        <div className="before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10">
+          <img
+            src={projectImages[0]?.src}
+            alt="Cover Image"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="h-[300px] relative z-50 max-w-6xl mx-auto flex flex-col justify-center items-start text-left text-white p-6">
+            <h1 className="text-10xl sm:text-5xl font-extrabold mb-6">
+            {id.replace(/-/g, ' ').toUpperCase()}
+            </h1>
+          </div>
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
         {projectImages.map((image, index) => (
-          <Link key={index} to={`/project/${id}/image/${index + 1}`} className="relative group">
+          <Link
+            key={index}
+            to={`/project/${id}/image/${index + 1}`}
+            className="relative group"
+          >
             <img
               src={image.src}
               alt={image.title}

@@ -4,6 +4,7 @@ import { carouselData, servicesData } from '../data/home-data'; // Import data
 import { Link } from 'react-router-dom';
 import image1 from '../Assets/Images/buildings/building-102840_1280.jpg';
 import '../styles/Home.css';
+import WhyChooseUs from '../components/WhyChooseUs';
 
 const Home = () => {
   const carouselRef = useRef(null);
@@ -192,6 +193,8 @@ const Home = () => {
     ))}
   </div>
 </div>
+
+<WhyChooseUs />
 
     </>
   );
