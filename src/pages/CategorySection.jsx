@@ -16,7 +16,7 @@ const CategorySection = ({ title, images }) => {
             <img
               src={image}
               alt={`client ${index}`}
-              className="w-24 h-auto transition-transform duration-300 hover:scale-110 sm:w-20"
+              className="w-[300px] h-[170px] transition-transform duration-300 hover:scale-110 sm:w-20"
             />
           </div>
         ))}
@@ -26,3 +26,5 @@ const CategorySection = ({ title, images }) => {
 };
 
 export default CategorySection;
+
+   

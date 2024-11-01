@@ -4,27 +4,25 @@ import React from 'react';
 import CategorySection from './CategorySection';
 import ImageRow from '../components/Images';
 import { categories } from '../data/clients-data';
-import WhyChooseUs from '../components/WhyChooseUs';
 
 const Clients = () => {
   return (
     <>
       <ImageRow />
 
-
-      <h1 className="text-3xl mt-8 mx-8 text-blue-700 text-center sm:text-2xl sm:mt-6 sm:mx-4">OUR CLIENTS</h1>
-      <div className="p-5 sm:p-3">
+      <h1 className="text-3xl mt-8 mx-8 text-blue-700 text-center sm:text-2xl sm:mt-6 sm:mx-4">
+        OUR CLIENTS
+      </h1>
+      <div className="p-5 sm:p-3 grid grid-cols-3 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {categories.map((category, index) => (
           <CategorySection
             key={index}
             title={category.title}
             images={category.images}
+            className={index === categories.length - 1 ? 'lg:col-span-3 mx-auto' : ''}
           />
         ))}
-
       </div>
-
-      <WhyChooseUs />
 
       {/* Structured Data for SEO */}
       <script type="application/ld+json">

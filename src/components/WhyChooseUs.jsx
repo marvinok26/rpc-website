@@ -73,7 +73,7 @@ const WhyChooseUs = () => {
     <div className="bg-gray-100 px-4 py-12 font-sans" ref={ref}>
       <div className="">
         <h2 className="text-gray-800 text-4xl max-sm:text-2xl font-extrabold mb-8">
-          Application Metrics
+          Why Choose Us
         </h2>
         <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-5">
           {metrics.map((metric, index) => (
