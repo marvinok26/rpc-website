@@ -51,6 +51,7 @@ import img31 from '../Assets/PROJECTS BATCH 1/URBAN RENEWAL & REDEVELOPLENT PLAN
 import img32 from '../Assets/PROJECTS BATCH 1/URBAN RENEWAL & REDEVELOPLENT PLAN/NAIROBI URBAN  ILUSTRATION TO EXPORT/Slide4.webp';
 import img33 from '../Assets/PROJECTS BATCH 1/URBAN RENEWAL & REDEVELOPLENT PLAN/NAIROBI URBAN  ILUSTRATION TO EXPORT/Slide5.webp';
 import img34 from '../Assets/PROJECTS BATCH 1/URBAN RENEWAL & REDEVELOPLENT PLAN/NAIROBI URBAN  ILUSTRATION TO EXPORT/Slide6.webp';
+import img43 from '../Assets/PROJECTS BATCH 1/URBAN RENEWAL & REDEVELOPLENT PLAN/NAIROBI URBAN  ILUSTRATION TO EXPORT/URBAN NETWORKS.jpg';
 
 // Slum Upgrade Plan
 import img35 from '../Assets/PROJECTS BATCH 1/SLUM UPGRADE PLAN/KOROGOCHO VILLAGES.webp';
@@ -88,7 +89,7 @@ const imageDetails = {
             'Zoning regulations',
             'Economic and environmental plans',
           ],
-          description: `The land use plan integrates three development strategies: the Agricultural Development Strategy, Urban Development Strategy, and Eco-Tourism & Conservancy Strategy. It aims to provide a path toward achieving prosperous county development through strong rural-urban linkages and promoting tourism zones around existing facilities.`,
+          description: [`The land use plan integrates three development strategies: the Agricultural Development Strategy, Urban Development Strategy, and Eco-Tourism & Conservancy Strategy. It aims to provide a path toward achieving prosperous county development through strong rural-urban linkages and promoting tourism zones around existing facilities.`],
         },
       },
     },
@@ -107,17 +108,20 @@ const imageDetails = {
           { src: img5, alt: 'TOD' },//6
         ],
         details: {
-          assignment: 'ISUD Nakuru Town',
-          client: 'County Government of Nakuru',
-          period: '2021 - 2023',
-          status: 'In Progress',
+          assignment: 'Digital mapping and the preparation of strategic urban development plans for cluster IV towns: Nakuru town (City) ',
+          client: 'Government of Kenya, Ministry of Lands, Housing and Urban Development – Funded by World Bank under the Kenya Municipal Programme',
+          period: '2014 - 2016',
+          status: 'Complete and Approved',
           projectOutputs: [
-            'Detailed spatial plan for Nakuru Town',
-            'Community engagement reports',
-            'Land use maps',
-            'Infrastructure development plans',
+            'GIS based digital Maps ',
+            'A Structure Plan',
+            'Urban Development Plan ',
+            'Action area plans ',
+            '5 no. Subject plans ',
+            '11 no. Planning policies ',
+            'Digitized plans for the town',
           ],
-          description: "This project aims to develop a comprehensive spatial plan for Nakuru Town.",
+          description: ["This strategic urban development plan combines key initiatives in urban growth, environmental conservation, and infrastructure enhancement. It provides a comprehensive framework to support balanced development, foster economic opportunities, and strengthen rural-urban connections, all while promoting sustainable tourism and conservation efforts within the city and surrounding regions."],
         },
       },
       '2': {
@@ -131,16 +135,21 @@ const imageDetails = {
           { src: img8, alt: 'Densification' },//6
         ],
         details: {
-          assignment: 'ISUD Naivasha Town',
-          client: 'County Government of Nakuru',
-          period: '2022 - 2024',
-          status: 'In Progress',
+          assignment: 'Digital Mapping and Preparation of Strategic Urban Development Plans for Cluster Iv Towns: Naivasha Town n',
+          client: 'Government of Kenya, Ministry of Lands, Housing and Urban Development – Funded by World Bank under the Kenya Municipal Programme',
+          period: '2014 - 2016',
+          status: 'Complete and Approved',
           projectOutputs: [
-            'Spatial analysis reports',
-            'Public participation plans',
-            'Land use recommendations',
+            'GIS based digital Maps',
+            'A Structure Plan',
+            'Urban Development Plan',
+            'Action area plans',
+            'Urban renewal and Informal settlement plans',
+            '5 No. Subject plans',
+            '11 no. Planning policies',
+            'Digitized plans for the town',
           ],
-          description: "This project aims to create a sustainable urban development plan for Naivasha Town.",
+          description: ["The strategic urban development plan for Naivasha Town (covering 951 sq km) focuses on creating a structured path for sustainable growth and revitalization. Key outputs include GIS-based digital mapping, an overarching structure plan, and targeted action area and renewal plans, particularly for informal settlements. The project, completed with World Bank funding, aims to support cohesive urban policies and digitized planning resources, enabling balanced development and improved quality of life for Naivasha’s communities"],
         },
       },
       '3': {
@@ -153,16 +162,21 @@ const imageDetails = {
           { src: img14, alt: 'Lower Terminus Design Concept' },//5
         ],
         details: {
-          assignment: 'ISUD Nyeri Town',
-          client: 'County Government of Nyeri',
-          period: '2021 - 2023',
-          status: 'In Progress',
+          assignment: 'Digital mapping and the preparation of strategic urban development plans for Nyeri town',
+          client: 'Government of Kenya, Ministry of Lands, Housing and Urban Development – Funded by World Bank under the Kenya Municipal Programme',
+          period: '2014-2016',
+          status: 'Complete and Approved',
           projectOutputs: [
-            'Urban design guidelines',
-            'Traffic management strategies',
-            'Community consultation reports',
+            'GIS based digital Maps',
+            'A Structure Plan',
+            'Urban Development Plan',
+            'Action area plans',
+            'Urban renewal and Informal settlement plans',
+            '5 No. Subject plans',
+            '11 no. Planning policies',
+            'Digitized plans for the town',
           ],
-          description: "This project focuses on enhancing the urban environment of Nyeri Town.",
+          description: ["The urban development plan for Nyeri Town emphasizes creating a sustainable, vibrant community with well-integrated urban design principles. Key outputs include GIS-based maps, a comprehensive structure plan, and focused action area and renewal plans for informal settlements. Through a network of walkable streets, mixed land uses, quality public spaces, and green networks, the project aims to foster a compact, well-connected urban fabric that respects cultural heritage and ecological systems."],
         },
       },
       '4': {
@@ -172,16 +186,20 @@ const imageDetails = {
           { src: img19, alt: 'Slide 2' },
         ],
         details: {
-          assignment: 'ISUD Mandera Municipality',
-          client: 'County Government of Mandera',
-          period: '2022 - 2024',
-          status: 'In Progress',
+          assignment: 'Preparation of an Integrated Strategic Urban Development Plan for Mandera (Now Municipality) (2015-2035)',
+          client: 'County Government of Mandera, Department Lands housing and Physical planning',
+          period: '2014-2016',
+          status: 'Complete and Approved',
           projectOutputs: [
-            'Integrated urban plans',
-            'Social infrastructure assessments',
-            'Land tenure frameworks',
+            'GIS based Plans',
+            'Detailed plans and policies',
+            'Sector Plans',
+            'Action Area Plans',
+            'Capital Investment Plans',
+            'Training and Capacity building',
+
           ],
-          description: "This project aims to develop an inclusive urban plan for Mandera Municipality.",
+          description: ["The Integrated Strategic Urban Development Plan (ISUDP) for Mandera Municipality provides a comprehensive framework for sustainable growth from 2015 to 2035. Key outputs include GIS-based maps, detailed sector and action area plans, and capital investment strategies. Additionally, the project emphasized training and capacity building to support long-term urban management. Completed with the guidance of the County Government's Department of Lands and Physical Planning, this plan serves as a roadmap for Mandera’s structured development and urban resilience."],
         },
       },
       '5': {
@@ -192,31 +210,39 @@ const imageDetails = {
           { src: img22, alt: 'Transport V10' },
         ],
         details: {
-          assignment: 'ISUD Meru Town',
-          client: 'County Government of Meru',
-          period: '2022 - 2024',
-          status: 'In Progress',
+          assignment: 'Preparation of an Integrated Strategic Urban Development Plan for Meru town (2011-2030)',
+          client: 'County Government of Meru, Department Lands, ICT and Physical Planning',
+          period: '2011- 2013',
+          status: 'Complete and Approved',
           projectOutputs: [
-            'Comprehensive development framework',
-            'Infrastructure investment plans',
-            'Public space enhancement strategies',
+            'A structure plan',
+            '14 No. action area plans',
+            '4 No. Informal settlements plans',
+            'Capital Investment plan',
+            'Subject plans: (Transportation plan, Economic (Investment) strategy, Environment strategy, cultural and Heritage conservational plan) ',
+            'Digitized plans for Meru town',
+
           ],
-          description: "This project focuses on sustainable development for Meru Town.",
+          description: ["The Integrated Strategic Urban Development Plan for Meru Town (2011-2030) outlines a structured approach to urban growth, covering key areas such as transportation, economic investment, environmental conservation, and cultural heritage preservation. Developed for the County Government of Meru, this plan includes a structure plan, 14 action area plans, and a capital investment plan, with digitized maps supporting implementation. "],
         },
       },
       '6': {
         title: 'ISUD Mtwapa Town',
         images: [{ src: img23, alt: 'Mtwapa' }],
         details: {
-          assignment: 'ISUD Mtwapa Town',
-          client: 'Coast Development Authority',
-          period: '2022 - 2024',
-          status: 'In Progress',
+          assignment: 'Preparation of an Integrated Strategic Urban Development Plan for Mtwapa town (2008-2030)',
+          client: 'Office of the Deputy Prime Minister and Ministry of Local Government.',
+          period: '2008-2010',
+          status: 'Complete and Approved',
           projectOutputs: [
-            'Land use zoning maps',
-            'Environmental impact assessments',
+            'A structure plan',
+            '14 no. action area plans',
+            '5 no. Sector strategies',
+            'Revenue Enhancement Strategy',
+            '11 no. Planning policies',
+            'Digitized plans for Mtwapa',
           ],
-          description: "This project aims to create a vibrant urban space in Mtwapa.",
+          description: ["The Integrated Strategic Urban Development Plan for Mtwapa Town (2008-2030) provides a framework for managing growth and development, emphasizing strategic planning and revenue enhancement. Commissioned by the Office of the Deputy Prime Minister and the Ministry of Local Government, this comprehensive plan includes a structure plan, 14 action area plans, 5 sector strategies, and 11 planning policies. The digitized outputs support efficient governance and planning, guiding Mtwapa toward sustainable urbanization and economic vitality."],
         },
       },
     },
@@ -237,7 +263,13 @@ const imageDetails = {
             'Zoning regulations',
             'Infrastructure development guidelines',
           ],
-          description: "This project involves developing a comprehensive master plan for Red Coral.",
+          description: ["Tilisi is Kenya´s newest community that re-defines the essence of business, lifestyle and leisure. As a master planned and managed development with world–class infrastructure, Tilisi offers a corporate and community experience.",
+
+            "The development is set within 397 acres of the beautifully sprawling greenery of Limuru. It is strategically located along the international highway on the beautiful landscapes of Limuru, Kiambu County – just 25 kilometers from Westlands. It boasts direct accesses off Limuru Road, the Nairobi-Nakuru Highway and Ngecha Chunga Mali Road.",
+
+            "The superb location and the increasing urbanization of Kiambu County, makes Tilisi an ideal alternative for both individuals and businesses to move away from the traffic, noise and congestion of Nairobi City.",
+
+            "RPC as the physical planners and part of a larger team led by PLANNING prepared the Master plan and processed development permission with the local authorities.",]
         },
       },
       '2': {
@@ -257,13 +289,14 @@ const imageDetails = {
             'Comprehensive master plan',
             'Development control regulations',
           ],
-          description: "This project aims to develop a sustainable master plan for Albizzia Downs.",
+          description: ["Albizzia Downs Estate is a uniquely planned mixed use real estate development offering serene and green living. The development sits on 600 acres of land located at the outskirts of Thika town within Kiambu County. The estate has some notable developments which include Oshwal University and Mpesa Academy.",
+            "The planning excerise involved preparation of Master plans at two levels namely the Structure plan and at the detailed plan level. The development received the necessary development application approvals from The County Government of Kiambu. The assignment was undertaken by RPC and other partners firms as part of the Team led by PLANNING."]
         },
       },
     },
   },
 
-  'urban-renewal': {
+  'urban-renewal-slum-upgrades': {
     projects: {
       '1': {
         title: 'Urban Renewal & Redevelopment Plans',
@@ -274,44 +307,40 @@ const imageDetails = {
           { src: img32, alt: 'Urban Renewal Illustration 4' },
           { src: img33, alt: 'Urban Renewal Illustration 5' },
           { src: img34, alt: 'Urban Renewal Illustration 6' },
+          { src: img43, alt: 'Urban Renewal Illustration 7' },
         ],
         details: {
           assignment: 'Nairobi Urban Renewal Plan',
           client: 'Nairobi City County',
           period: '2023 - 2025',
-          status: 'In Progress',
+          status: 'Complete and Approved',
           projectOutputs: [
             'Framework for urban regeneration',
             'Public space revitalization strategies',
           ],
-          description: "This project focuses on revitalizing urban areas in Nairobi through strategic planning.",
+          description: ["This project focuses on revitalizing urban areas in Nairobi through strategic planning."],
         },
       },
-    },
-  },
-
-  'slum-upgrade': {
-    projects: {
-      '1': {
-        title: 'Slum Upgrade Plans',
-        images: [
-          { src: img35, alt: 'Korogocho Villages' },
-          { src: img36, alt: 'Korogocho Land Use Plan' },
-        ],
-        details: {
-          assignment: 'Korogocho Slum Upgrade Plan',
-          client: 'County Government of Nairobi',
-          period: '2022 - 2024',
-          status: 'In Progress',
-          projectOutputs: [
-            'Upgraded infrastructure plans',
-            'Social programs for community development',
+        '2': {
+          title: 'Slum Upgrade Plans',
+          images: [
+            { src: img35, alt: 'Korogocho Villages' },
+            { src: img36, alt: 'Korogocho Land Use Plan' },
           ],
-          description: "This project aims to enhance living conditions in Korogocho slum through targeted upgrades.",
+          details: {
+            assignment: 'Korogocho Slum Upgrade Plan',
+            client: 'County Government of Nairobi',
+            period: '2022 - 2024',
+            status: 'In Progress',
+            projectOutputs: [
+              'Upgraded infrastructure plans',
+              'Social programs for community development',
+            ],
+            description: ["This project aims to enhance living conditions in Korogocho slum through targeted upgrades."],
+          },
         },
       },
     },
-  },
-};
+  };
 
 export default imageDetails;

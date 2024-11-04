@@ -107,13 +107,44 @@ const ImageDetail = () => {
 
           {/* Text Section */}
           <div className="flex-grow space-y-4">
-            <div><h2 className="font-bold">Assignment:</h2><p>{imageData.details?.assignment || 'N/A'}</p></div>
-            <div><h2 className="font-bold">Client:</h2><p>{imageData.details?.client || 'N/A'}</p></div>
-            <div><h2 className="font-bold">Period:</h2><p>{imageData.details?.period || 'N/A'}</p></div>
-            <div><h2 className="font-bold">Status:</h2><p>{imageData.details?.status || 'N/A'}</p></div>
-            <div><h2 className="font-bold">Project Outputs:</h2><p>{imageData.details?.projectOutputs.join(', ') || 'N/A'}</p></div>
-            <div><h2 className="font-bold">Description:</h2><p>{imageData.details?.description || 'No description available.'}</p></div>
-          </div>
+  <div>
+    <h2 className="font-bold">Assignment:</h2>
+    <p>{imageData.details?.assignment || 'N/A'}</p>
+  </div>
+  <div>
+    <h2 className="font-bold">Client:</h2>
+    <p>{imageData.details?.client || 'N/A'}</p>
+  </div>
+  <div>
+    <h2 className="font-bold">Period:</h2>
+    <p>{imageData.details?.period || 'N/A'}</p>
+  </div>
+  <div>
+    <h2 className="font-bold">Status:</h2>
+    <p>{imageData.details?.status || 'N/A'}</p>
+  </div>
+  <div>
+    <h2 className="font-bold">Project Outputs:</h2>
+    <div>
+      {Array.isArray(imageData.details?.projectOutputs) && imageData.details.projectOutputs.length > 0 
+        ? imageData.details.projectOutputs.map((output, index) => (
+            <p key={index}>{output}</p> // Each output in the array is rendered in a <p> tag for line breaks
+          ))
+        : <p>No project outputs available.</p>}
+    </div>
+  </div>
+  <div>
+    <h2 className="font-bold">Description:</h2>
+    <div>
+      {Array.isArray(imageData.details?.description) 
+        ? imageData.details.description.map((desc, index) => (
+            <p key={index}>{desc}</p> // Each string in the array is rendered in a <p> tag for line breaks
+          ))
+        : <p>No description available.</p>}
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
 
