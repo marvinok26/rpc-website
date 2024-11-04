@@ -41,9 +41,10 @@ import dev3 from "../Assets/CLIENTS LOGOS/world-bank-logo.jpg";
 export const categories = [
   { title: 'Governments', images: [gov1, gov2, gov3, gov4, gov5] },
   { title: 'Hospitality', images: [hosp1, hosp2, hosp3, hosp4, hosp5] },
-  { title: 'Private Entities', images: [priv1, priv2, priv3, priv4, priv5, priv6, priv7, priv8] },
+  
   { title: 'Religious Organizations', images: [relig1, relig2, relig3, relig4] },
   { title: 'Parastatals & State Cooperations', images: [paras1, paras2, paras3, paras4] },
   { title: 'Real Estate Companies', images: [real1, real2, real3] },
-  { title: 'Development Partner', images: [dev1, dev2, dev3] }
+  { title: 'Development Partner', images: [dev1, dev2, dev3] },
+  { title: 'Private Entities', images: [priv1, priv2, priv3, priv4, priv5, priv6, priv7, priv8] },
 ];

@@ -5,6 +5,8 @@ import CategorySection from './CategorySection';
 import ImageRow from '../components/Images';
 import { categories } from '../data/clients-data';
 
+import WhyChooseUs from '../components/WhyChooseUs';
+
 const Clients = () => {
   return (
     <>
@@ -23,6 +25,8 @@ const Clients = () => {
           />
         ))}
       </div>
+
+      <WhyChooseUs />
 
       {/* Structured Data for SEO */}
       <script type="application/ld+json">

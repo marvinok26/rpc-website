@@ -14,10 +14,10 @@ const CategorySection = ({ title, images }) => {
             className="flex-shrink-0 m-2 animate-slideIn sm:m-1"
           >
             <img
-              src={image}
-              alt={`client ${index}`}
-              className="w-[300px] h-[170px] transition-transform duration-300 hover:scale-110 sm:w-20"
-            />
+  src={image}
+  alt={`client ${index}`}
+  className="w-[300px] h-[120px] transition-transform duration-300 hover:scale-110 sm:w-28"
+/>
           </div>
         ))}
       </div>

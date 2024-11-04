@@ -70,12 +70,12 @@ const imageDetails = {
       '1': {
         title: 'County Spatial Plan Overview',
         images: [
-          { src: img37, alt: 'Agro Ecological Zones August 2021' },
-          { src: img38, alt: 'County Land Use Plan' },
-          { src: img39, alt: 'DJI 0206' },
-          { src: img40, alt: 'DJI 0533' },
-          { src: img41, alt: 'DJI 0861' },
-          { src: img42, alt: 'Ecotourism Model' },
+          { src: img37, alt: 'Agro Ecological Zones August 2021' },//1
+          { src: img41, alt: 'DJI 0861' },//2
+          { src: img40, alt: 'DJI 0533' },//3
+          { src: img39, alt: 'DJI 0206' },//4
+          { src: img42, alt: 'Ecotourism Model' },//5
+          { src: img38, alt: 'County Land Use Plan' },//6
         ],
         details: {
           assignment: 'Kirinyaga County Spatial Plan (2015-2025)',
@@ -99,12 +99,12 @@ const imageDetails = {
       '1': {
         title: 'ISUD Nakuru Town',
         images: [
-          { src: img1, alt: 'CBD Expansion Design Concept 2' },
-          { src: img2, alt: 'CBD Expansion Design Concept' },
-          { src: img3, alt: 'CBD Expansion' },
-          { src: img4, alt: 'Nakuru Land Use A3' },
-          { src: img5, alt: 'TOD' },
-          { src: img6, alt: 'Transport Plan' },
+          { src: img4, alt: 'Nakuru Land Use A3' },//1
+          { src: img6, alt: 'Transport Plan' },//2
+          { src: img3, alt: 'CBD Expansion' },//3
+          { src: img2, alt: 'CBD Expansion Design Concept' },//4
+          { src: img1, alt: 'CBD Expansion Design Concept 2' },//5
+          { src: img5, alt: 'TOD' },//6
         ],
         details: {
           assignment: 'ISUD Nakuru Town',
@@ -123,12 +123,12 @@ const imageDetails = {
       '2': {
         title: 'ISUD Naivasha Town',
         images: [
-          { src: img7, alt: 'CBD Strategy' },
-          { src: img8, alt: 'Densification' },
-          { src: img9, alt: 'Lake View' },
-          { src: img10, alt: 'Naivasha CBD Massing' },
-          { src: img11, alt: 'Naivasha LU' },
-          { src: img12, alt: 'Naivasha Nodal Consolidation' },
+          { src: img11, alt: 'Naivasha LU' },//1
+          { src: img12, alt: 'Naivasha Nodal Consolidation' },//2
+          { src: img10, alt: 'Naivasha CBD Massing' },//3
+          { src: img7, alt: 'CBD Strategy' },//4
+          { src: img9, alt: 'Lake View' },//5
+          { src: img8, alt: 'Densification' },//6
         ],
         details: {
           assignment: 'ISUD Naivasha Town',
@@ -146,11 +146,11 @@ const imageDetails = {
       '3': {
         title: 'ISUD Nyeri Town',
         images: [
-          { src: img13, alt: 'CBD Detailed LU Updated' },
-          { src: img14, alt: 'Lower Terminus Design Concept' },
-          { src: img15, alt: 'Terminus Design Concept 2' },
-          { src: img16, alt: 'Transport Plan A3' },
-          { src: img17, alt: 'Nyeri LU' },
+          { src: img17, alt: 'Nyeri LU' },//1
+          { src: img16, alt: 'Transport Plan A3' },//2
+          { src: img13, alt: 'CBD Detailed LU Updated' },//3
+          { src: img15, alt: 'Terminus Design Concept 2' },//4
+          { src: img14, alt: 'Lower Terminus Design Concept' },//5
         ],
         details: {
           assignment: 'ISUD Nyeri Town',
@@ -187,8 +187,8 @@ const imageDetails = {
       '5': {
         title: 'ISUD Meru Town',
         images: [
-          { src: img20, alt: 'Meru Land Use A3' },
           { src: img21, alt: 'Structure Plan' },
+          { src: img20, alt: 'Meru Land Use A3' },
           { src: img22, alt: 'Transport V10' },
         ],
         details: {
