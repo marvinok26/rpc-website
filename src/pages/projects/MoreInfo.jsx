@@ -15,7 +15,7 @@ const MoreInfo = () => {
         <div className="before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10">
           <img
             src={projectImages[0]?.src}
-            alt="Cover Image"
+            alt="RPC Projects"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="h-[300px] relative z-50 max-w-6xl mx-auto flex flex-col justify-center items-start text-left text-white p-6">
