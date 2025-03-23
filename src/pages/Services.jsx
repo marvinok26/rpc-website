@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageRow from '../components/Images';
 import { GiConfirmed } from "react-icons/gi";
+import { Helmet } from 'react-helmet';
 import image1 from "../Assets/Images/buildings/landuse.PNG";
 import image2 from "../Assets/Images/buildings/development.PNG";
 import image3 from "../Assets/Images/buildings/gis.PNG";
@@ -58,33 +59,100 @@ const serviceData = [
 const Services = () => {
   return (
     <>
-      <ImageRow />
-      <div className="services-section">
-        <h2 className="text-2xl sm:text-4xl my-6 sm:my-8 text-[#4263A5] text-center">OUR SERVICES</h2>
-        <div className="flex flex-col items-center px-4 sm:px-5 py-4 bg-[#f9f9f9] w-[100vw]">
+      <Helmet>
+        <title>Our Services | Real Plan Consultants</title>
+        <meta name="description" content="Explore our comprehensive GIS, planning, and environmental consultancy services." />
+      </Helmet>
+
+      <div className="w-full">
+        <ImageRow />
+      </div>
+      
+      <div className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl md:text-4xl mb-12 text-primary-600 text-center font-bold">OUR SERVICES</h2>
+        
+        <div className="space-y-16">
           {serviceData.map((item) => (
-            <div key={item.id} className="flex flex-col sm:flex-row items-start sm:items-center mb-5 w-full max-w-[1200px] sm:px-5 box-border">
-              <img
-                src={item.imageSrc}
-                alt={`Service related to ${item.title}`}
-                loading="lazy" // Lazy loading for better performance
-                className="h-[300px] sm:h-[450px] w-full sm:w-[500px] object-cover mb-4 sm:mb-0 sm:mr-8 sm:ml-20 rounded-md"
-              />
-              <div className="flex flex-col sm:items-start text-center sm:text-left">
-                <h3 className="text-lg sm:text-xl mb-2 text-[#333]">{item.title}</h3>
-                <ul className="list-none pl-0 sm:pl-4">
-                  {item.services.map((service, index) => (
-                    <li key={index} className="mb-2 text-[#666] flex items-center">
-                      <GiConfirmed className="mr-2" />
-                      {service}
-                    </li>
-                  ))}
-                </ul>
+            <div key={item.id} className="flex flex-col md:flex-row items-stretch gap-10 bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="md:w-1/2">
+                <div className="h-[380px] overflow-hidden rounded-lg shadow-md border border-neutral-200">
+                  <img
+                    src={item.imageSrc}
+                    alt={`Service related to ${item.title}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              
+              <div className="md:w-1/2 flex flex-col justify-center pt-6 md:pt-0">
+                <h3 className="text-2xl md:text-3xl mb-6 font-bold text-primary-600 text-center md:text-left">{item.title}</h3>
+                <div className="h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+                  <ul className="space-y-3">
+                    {item.services.map((service, index) => (
+                      <li key={index} className="flex items-start text-neutral-700 hover:text-neutral-900 transition-colors">
+                        <GiConfirmed className="mt-1 mr-3 text-primary-600 text-lg flex-shrink-0" />
+                        <span className="text-base font-medium">{service}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Additional info section */}
+      <section className="bg-neutral-100 py-16">
+        <div className="container mx-auto px-4">
+          <h3 className="text-2xl md:text-3xl mb-8 text-primary-600 text-center font-bold">WHY CLIENTS CHOOSE OUR SERVICES</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 h-full">
+              <h4 className="text-xl font-semibold mb-4 text-primary-600">Expertise & Experience</h4>
+              <p className="text-neutral-700">
+                Our team of qualified professionals brings decades of combined experience in planning, 
+                environmental assessment, and GIS mapping solutions, ensuring high-quality deliverables.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 h-full">
+              <h4 className="text-xl font-semibold mb-4 text-primary-600">Comprehensive Solutions</h4>
+              <p className="text-neutral-700">
+                From initial analysis to implementation, we provide end-to-end solutions tailored 
+                to your specific requirements and challenges.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 h-full">
+              <h4 className="text-xl font-semibold mb-4 text-primary-600">Innovation & Sustainability</h4>
+              <p className="text-neutral-700">
+                We integrate the latest methodologies and technologies to deliver sustainable, 
+                future-proof solutions that meet both current needs and long-term objectives.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom scrollbar styles */}
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #4263a5;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #354a7d;
+        }
+      `}</style>
 
       {/* Structured Data for SEO */}
       <script type="application/ld+json">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-const MetricCounter = ({ title, targetValue, isVisible }) => {
+const MetricCounter = ({ title, targetValue, isVisible, showPlus = false }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -27,10 +27,11 @@ const MetricCounter = ({ title, targetValue, isVisible }) => {
   }, [isVisible, targetValue]);
 
   return (
-    <div className="bg-white rounded-xl border px-7 py-8">
-      <p className="text-gray-400 text-base font-semibold mb-1">{title}</p>
-      <h3 className="text-blue-600 text-3xl font-extrabold">
-        {title === 'Server Uptime' ? `${count.toFixed(1)}%` : count}
+    <div className="bg-white rounded-xl border shadow-sm px-7 py-8 hover:shadow-md transition-shadow">
+      <p className="text-neutral-500 text-base font-semibold mb-1">{title}</p>
+      <h3 className="text-primary-600 text-3xl font-extrabold">
+        {title === 'Server Uptime' ? `${count.toFixed(1)}%` : 
+         showPlus ? `${count.toLocaleString()}+` : count.toLocaleString()}
       </h3>
     </div>
   );
@@ -38,10 +39,10 @@ const MetricCounter = ({ title, targetValue, isVisible }) => {
 
 const WhyChooseUs = () => {
   const metrics = [
-    { title: 'Total free services', value: 54000 },
-    { title: 'Revenue a month', value: 80000 },
-    { title: 'Engagement', value: 100000 },
-    { title: 'Server Uptime', value: 99.9 },
+    { title: 'Completed Projects', value: 5000, showPlus: true },
+    { title: 'Counties Served', value: 30 },
+    { title: 'Client Satisfaction', value: 98 },
+    { title: 'Years of Experience', value: 22 },
   ];
 
   const [isVisible, setIsVisible] = useState(false);
@@ -70,9 +71,9 @@ const WhyChooseUs = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 px-4 py-12 font-sans" ref={ref}>
-      <div className="">
-        <h2 className="text-gray-800 text-4xl max-sm:text-2xl font-extrabold mb-8">
+    <section className="bg-neutral-100 px-4 py-12 font-sans" ref={ref}>
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-primary-600 text-3xl md:text-4xl mb-10 text-center font-bold">
           Why Choose Us
         </h2>
         <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-5">
@@ -81,12 +82,13 @@ const WhyChooseUs = () => {
               key={index} 
               title={metric.title} 
               targetValue={metric.value} 
-              isVisible={isVisible} 
+              isVisible={isVisible}
+              showPlus={metric.showPlus}
             />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

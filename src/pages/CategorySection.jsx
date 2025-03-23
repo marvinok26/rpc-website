@@ -1,23 +1,27 @@
-// src/components/CategorySection.js
-
 import React from 'react';
 import CategoryTitle from './CategoryTitle';
 
-const CategorySection = ({ title, images }) => {
+const CategorySection = ({ title, images, className }) => {
   return (
-    <div className="mb-10 sm:mb-6">
+    <div className={`bg-white rounded-lg shadow-md p-6 mb-10 hover:shadow-lg transition-all duration-300 ${className}`}>
       <CategoryTitle title={title} />
-      <div className="flex flex-wrap justify-center items-center overflow-hidden relative">
+      
+      <div className="grid grid-cols-2 gap-4 justify-items-center">
         {images.map((image, index) => (
           <div
             key={index}
-            className="flex-shrink-0 m-2 animate-slideIn sm:m-1"
+            className="w-full flex items-center justify-center p-4 bg-gradient-to-b from-neutral-50 to-white rounded-md border border-neutral-100 hover:border-primary-200 transition-all duration-300"
+            style={{ height: '140px' }}
           >
             <img
-  src={image}
-  alt={`client ${index}`}
-  className="w-[300px] h-[120px] transition-transform duration-300 hover:scale-110 sm:w-28"
-/>
+              src={image}
+              alt={`${title} client ${index + 1}`}
+              className="max-h-[120px] max-w-full object-contain transition-all duration-300 hover:scale-105"
+              style={{ 
+                filter: "contrast(1.2) brightness(1.1)",
+                mixBlendMode: "multiply"
+              }}
+            />
           </div>
         ))}
       </div>
@@ -26,5 +30,3 @@ const CategorySection = ({ title, images }) => {
 };
 
 export default CategorySection;
-
-   

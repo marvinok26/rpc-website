@@ -1,113 +1,198 @@
-import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import logo from '../Assets/Images/Logo/RPC_LTD_LOGO-removebg-preview.png';
-import '../styles/Footer.css';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email.trim() !== '') {
+      setSubscribed(true);
+      setEmail('');
+      // In a real app, you would handle the subscription here
+      setTimeout(() => setSubscribed(false), 3000);
+    }
+  };
+
   // Social Media Links Data
   const socialLinks = [
-    { href: 'https://www.facebook.com', icon: <FaFacebookF />, bg: 'bg-[#4267b2]', gradientFrom: '#335a8d', gradientTo: '#1c2e5a', label: 'Visit our Facebook page' },
-    { href: 'https://www.twitter.com', icon: <FaTwitter />, bg: 'bg-[#1da1f2]', gradientFrom: '#0f7cba', gradientTo: '#0a4c7b', label: 'Visit our Twitter profile' },
-    { href: 'https://www.instagram.com', icon: <FaInstagram />, bg: 'bg-[#e1306c]', gradientFrom: '#b9275b', gradientTo: '#8e1e45', label: 'Visit our Instagram profile' },
-    { href: 'https://www.linkedin.com', icon: <FaLinkedinIn />, bg: 'bg-[#0077b5]', gradientFrom: '#005a8d', gradientTo: '#003c6c', label: 'Visit our LinkedIn page' },
-    { href: 'https://www.youtube.com', icon: <FaYoutube />, bg: 'bg-[#ff0000]', gradientFrom: '#cc0000', gradientTo: '#990000', label: 'Visit our YouTube channel' },
+    { href: 'https://www.facebook.com', icon: <FaFacebookF />, bg: 'bg-[#4267b2]', label: 'Visit our Facebook page' },
+    { href: 'https://www.twitter.com', icon: <FaTwitter />, bg: 'bg-[#1da1f2]', label: 'Visit our Twitter profile' },
+    { href: 'https://www.instagram.com', icon: <FaInstagram />, bg: 'bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]', label: 'Visit our Instagram profile' },
+    { href: 'https://www.linkedin.com', icon: <FaLinkedinIn />, bg: 'bg-[#0077b5]', label: 'Visit our LinkedIn page' },
+    { href: 'https://www.youtube.com', icon: <FaYoutube />, bg: 'bg-[#ff0000]', label: 'Visit our YouTube channel' },
+  ];
+
+  // Contact information
+  const contactInfo = [
+    { icon: <FaMapMarkerAlt />, text: '4th Avenue Towers, 16th Floor, Upper Hill, Nairobi' },
+    { icon: <FaPhone />, text: '0722477500, 020-2214116' },
+    { icon: <FaEnvelope />, text: 'info@realplan.co.ke' },
   ];
 
   // Footer Links Data
   const footerLinks = [
     {
-      title: 'Company',
+      title: 'Quick Links',
       links: [
         { to: '/', label: 'Home' },
         { to: '/services', label: 'Our Services' },
         { to: '/about', label: 'About Us' },
         { to: '/projects', label: 'Projects' },
+        { to: '/clients', label: 'Our Clients' },
+        { to: '/contact', label: 'Contact Us' },
       ],
     },
     {
-      title: 'Services',
+      title: 'Our Services',
       links: [
         { to: '/services', label: 'GIS & Mapping' },
         { to: '/services', label: 'Physical & Land Use Planning' },
         { to: '/services', label: 'Development Applications' },
         { to: '/services', label: 'Environmental Services' },
+        { to: '/services', label: 'County Spatial Plans' },
+        { to: '/services', label: 'Master Plans' },
       ],
-    },
-    {
-      title: 'Opening Hours',
-      links: [
-        { label: 'Monday to Friday' },
-        { label: '8:00 AM to 5:00 PM' },
-      ],
-    },
-    {
-      title: 'Subscribe',
-      input: true,
     },
   ];
 
   return (
-    <footer className="relative flex flex-col bg-[#4263a5] bg-[linear-gradient(135deg,#4263a5_21px,#6190ec_22px,#d9ecff2d_24px,transparent_24px,transparent_67px,#d9ecff2d_67px,#d9ecff2d_69px,transparent_69px),linear-gradient(225deg,#4263a5_21px,#d9ecff2d_22px,#d9ecff2d_4px,transparent_24px,transparent_67px,#d9ecff2d_67px,#d9ecff2d_69px,transparent_9px)_0_64px] w-screen p-0 left-0">
-      <div className="absolute left-0 top-[100px] h-[1px] w-full bg-white"></div>
-      <div className="content w-full max-w-[1200px] mx-auto px-[20px] py-[20px] box-border">
-        <div className="top flex flex-col md:flex-row items-center justify-between">
-          <div className="logo-details text-white text-[24px] md:text-[30px] mb-[20px] md:mb-0">
-            <Link to="/" className="logo-container flex flex-col items-center">
-              <img src={logo} alt="Real Plan Consultants Ltd Logo" className="logo mt-[-20px] h-[50px] md:h-[60px] w-[55px] md:w-[65px]" />
-              <h5 className="logo-text text-[12px] md:text-[14px] text-white">Real Plan Consultants Ltd</h5>
-            </Link>
+    <footer className="bg-primary-700 text-white pt-16 pb-0">
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Company Info */}
+          <div>
+            <div className="mb-6 flex flex-col items-start">
+              <Link to="/" className="flex items-center space-x-2 mb-4">
+                <div className="bg-white p-2 rounded-lg shadow-md">
+                  <img src={logo} alt="Real Plan Consultants Ltd Logo" className="h-12 w-auto" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-white">Real Plan</h3>
+                  <p className="text-xs text-white/80">Consultants Ltd</p>
+                </div>
+              </Link>
+              <p className="text-sm text-white/80 mb-6">
+                Providing expert GIS and planning consultancy services for sustainable urban 
+                development since 2003.
+              </p>
+            </div>
+            
+            {/* Social Media Icons */}
+            <div>
+              <h4 className="text-sm font-bold uppercase mb-4 tracking-wider">Connect With Us</h4>
+              <div className="flex space-x-3">
+                {socialLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    aria-label={link.label}
+                    className={`
+                      flex h-9 w-9 rounded-full items-center justify-center text-white text-base
+                      transition-all duration-300 ease-in-out hover:scale-110 ${link.bg}
+                    `}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    {link.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="media-icons flex flex-wrap gap-[10px] justify-center md:justify-end items-center">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                aria-label={link.label}
-                className={`flex h-[25px] w-[25px] rounded-[50%] items-center justify-center text-white text-[14px] md:text-[17px] transition-all duration-400 ease-linear hover:bg-gradient-to-br from-[${link.gradientFrom}] to-[${link.gradientTo}] ${link.bg}`}
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="link-boxes flex flex-col md:flex-row justify-between pt-[20px]">
+          
+          {/* Quick Links */}
           {footerLinks.map((section, index) => (
-            <ul key={index} className="box w-full md:w-[calc(100%/4-10px)] mb-[20px]">
-              <li className="link_name text-white text-[16px] md:text-[18px] font-[400] mb-[10px] relative">{section.title}</li>
-              {section.links && section.links.map((link, i) => (
-                <li key={i}>
-                  {link.to ? (
-                    <Link to={link.to} className="text-white text-[12px] md:text-[14px] font-[600]">
+            <div key={index}>
+              <h4 className="text-sm font-bold uppercase mb-4 tracking-wider">{section.title}</h4>
+              <ul className="space-y-2">
+                {section.links.map((link, i) => (
+                  <li key={i}>
+                    <Link 
+                      to={link.to} 
+                      className="text-sm text-white/80 hover:text-white transition-colors duration-300 flex items-center"
+                    >
+                      <span className="mr-2">›</span>
                       {link.label}
                     </Link>
-                  ) : (
-                    <span className="text-white text-[12px] md:text-[14px] font-[600]">{link.label}</span>
-                  )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          
+          {/* Contact & Subscribe */}
+          <div>
+            <h4 className="text-sm font-bold uppercase mb-4 tracking-wider">Contact Us</h4>
+            <ul className="space-y-3 mb-6">
+              {contactInfo.map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-primary-400 mr-3 mt-1">{item.icon}</span>
+                  <span className="text-sm text-white/80">{item.text}</span>
                 </li>
               ))}
-              {section.input && (
-                <>
-                  <li>
-                    <input type="text" placeholder="Enter your email" className="h-[35px] w-full border-[2px] border-[#afafb6] bg-white rounded-[4px] px-[10px] text-[12px] md:text-[15px] text-black mt-[5px]" aria-label="Email input for subscription" />
-                  </li>
-                  <li>
-                    <input type="button" value="Subscribe" className="w-full bg-white text-black font-[500] text-[16px] md:text-[18px] mt-[4px] cursor-pointer transition-opacity duration-400 hover:opacity-100" aria-label="Subscribe button" />
-                  </li>
-                </>
-              )}
             </ul>
-          ))}
+            
+            <h4 className="text-sm font-bold uppercase mb-4 tracking-wider">Newsletter</h4>
+            <p className="text-sm text-white/80 mb-3">Subscribe to receive updates on our latest projects and services.</p>
+            
+            <form onSubmit={handleSubscribe} className="relative">
+              <input 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address" 
+                className="w-full px-4 py-2 text-sm bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-white/50 text-white"
+                required
+              />
+              <button
+                type="submit"
+                className="absolute right-1 top-1 bg-primary-600 hover:bg-primary-500 text-white px-3 py-1 rounded text-sm transition-colors duration-300"
+              >
+                Subscribe
+              </button>
+              {subscribed && (
+                <p className="text-xs text-green-400 mt-2">Thank you for subscribing!</p>
+              )}
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      {/* Opening Hours Bar */}
+      <div className="bg-primary-600 py-4 mb-4">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center md:justify-between">
+          <div className="flex items-center mb-3 md:mb-0">
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-3">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 className="text-sm font-bold">Operating Hours</h4>
+              <p className="text-xs text-white/80">Monday - Friday: 8:00 AM - 5:00 PM</p>
+            </div>
+          </div>
+          
+          <Link to="/contact" className="px-6 py-2 bg-white text-primary-600 rounded-lg hover:bg-white/90 transition-colors duration-300 text-sm font-bold">
+            Get In Touch
+          </Link>
         </div>
       </div>
 
-      <div className="bottom-details w-full bg-[#4263a5]">
-        <div className="bottom_text max-w-[1200px] mx-auto px-[20px] py-[10px] flex flex-col md:flex-row justify-between">
-          <span className="text-[12px] md:text-[14px] font-[300] text-white opacity-80 mb-[10px] md:mb-0">
-            Copyright © 2024 <a href="/" className="mr-[5px] md:mr-[10px] font-[500] text-white">Real Plan Consultants Ltd.</a> All rights reserved
-          </span>
-          <span className="text-[12px] md:text-[14px] font-[300] text-white opacity-80">Designed & Developed by Avia</span>
+      {/* Copyright section */}
+      <div className="border-t border-white/10 py-6">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-white/70 mb-3 md:mb-0">
+            &copy; {new Date().getFullYear()} Real Plan Consultants Ltd. All Rights Reserved.
+          </p>
+          <div className="text-sm text-white/70">
+            Designed & Developed by <span className="text-white">Elixer</span>
+          </div>
         </div>
       </div>
 
@@ -129,7 +214,7 @@ const Footer = () => {
             ],
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+123456789",
+              "telephone": "0722477500",
               "contactType": "Customer Service",
               "availableLanguage": ["English"]
             }

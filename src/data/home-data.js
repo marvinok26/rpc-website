@@ -45,7 +45,7 @@ export const servicesData = [
     id: 1,
     image: image6,
     title: 'GIS AND MAPPING',
-    description: 'Creative planning team, Long and short. We strive to deliver',
+    description: 'Creative planning team, both long term and short term projects. We strive to deliver',
   },
   {
     id: 2,
@@ -63,6 +63,6 @@ export const servicesData = [
     id: 4,
     image: image9,
     title: 'ENVIRONMENTAL SERVICES',
-    description: 'Integrates environmental considerations into planning.',
+    description: 'Integrates environmental considerations into planning and execution.',
   },
 ];
