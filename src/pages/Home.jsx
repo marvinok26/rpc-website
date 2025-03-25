@@ -65,7 +65,7 @@ const Home = () => {
             <img
               src={item.imgSrc}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover filter brightness-[50%]"
+              className="w-full h-full object-cover filter brightness-[80%]"
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
             />
