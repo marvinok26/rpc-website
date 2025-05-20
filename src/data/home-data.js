@@ -1,12 +1,12 @@
-import image1 from '../Assets/Images/buildings/building-102840_1280.jpg';
-import image2 from '../Assets/Images/buildings/building-8373615_1280.jpg';
-import image3 from '../Assets/Images/buildings/buildings-7848348_1280.jpg';
-import image4 from '../Assets/Images/buildings/city-4667143_1280.jpg';
-import image5 from '../Assets/Images/buildings/city-5156636_1280.jpg';
-import image6 from '../Assets/Images/buildings/crane-houses-7518536_1280.jpg';
-import image7 from '../Assets/Images/buildings/map-11043_1280.jpg';
-import image8 from '../Assets/Images/buildings/nyc-4854718_1280.jpg';
-import image9 from '../Assets/Images/buildings/skyscraper-8366040_1280.jpg';
+import image1 from '../Assets/Images/buildings/img1.jpg';
+import image2 from '../Assets/Images/buildings/img2.jpg';
+import image3 from '../Assets/Images/buildings/img3.jpg';
+import image4 from '../Assets/Images/buildings/img4.jpg';
+import image5 from '../Assets/Images/buildings/img5.jpg';
+import image6 from '../Assets/Images/buildings/img13.jpg';
+import image7 from '../Assets/Images/buildings/img10.jpg';
+import image8 from '../Assets/Images/buildings/img11.jpg';
+import image9 from '../Assets/Images/buildings/img12.jpg';
 export const carouselData = [
   {
     imgSrc: image1,

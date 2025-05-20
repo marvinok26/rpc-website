@@ -4,7 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { FaBars } from 'react-icons/fa';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
-import logo from '../Assets/Images/Logo/RPC_LTD_LOGO-removebg-preview.png';
+// import logo from '../Assets/Images/Logo/RPC_LTD_LOGO-removebg-preview.png';
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -86,7 +86,7 @@ const Navbar = () => {
       }`}
     >
       <Link to="/" className="flex flex-col items-center" onClick={closeNavHandler}>
-        <img src={logo} alt="Logo" className="h-[50px] w-[60px]" />
+        {/* <img src={logo} alt="Logo" className="h-[50px] w-[60px]" /> */}
         <h5 className={`text-[12px] font-semibold ${scrolled ? 'text-neutral-800' : 'text-white'}`}>
           Real Plan Consultants Ltd
         </h5>

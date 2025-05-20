@@ -133,7 +133,7 @@ const Contact = () => {
                 <FiMail className="mt-1 mr-4 text-xl text-primary-600 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Email:</p>
-                  <a href="mailto:email_address" className="text-primary-600 hover:underline">planners@realplan.co.ke</a>
+                  <a href="mailto:email_address" className="text-primary-600 hover:underline">info@realplan.co.ke</a>
                 </div>
               </div>
 

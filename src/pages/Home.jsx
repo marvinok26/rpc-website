@@ -3,7 +3,7 @@ import { CgArrowTopRight } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { carouselData, servicesData } from '../data/home-data'; // Import data
-import image1 from '../Assets/Images/buildings/building-102840_1280.jpg';
+import image1 from '../Assets/Images/buildings/img8.jpg';
 import WhyChooseUs from '../components/WhyChooseUs';
 
 const Home = () => {
@@ -28,7 +28,7 @@ const Home = () => {
       {/* Hero Carousel - Full height including navbar space */}
       <div className="relative w-full h-screen overflow-hidden">
         {/* Progress Bar */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-primary-600/30 z-30">
+        {/* <div className="absolute top-0 left-0 w-full h-1 bg-primary-600/30 z-30">
           <div 
             className="h-full bg-primary-600" 
             style={{ 
@@ -36,7 +36,7 @@ const Home = () => {
               transition: 'width 8s linear' 
             }}
           ></div>
-        </div>
+        </div> */}
 
         {/* Slide Indicators */}
         <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center gap-2">
@@ -65,7 +65,7 @@ const Home = () => {
             <img
               src={item.imgSrc}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover filter brightness-[80%]"
+              className="w-full h-full object-cover filter brightness-[100%]"
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
             />

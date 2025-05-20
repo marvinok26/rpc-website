@@ -2,9 +2,9 @@ import React from 'react';
 import ImageRow from '../components/Images';
 import { GiConfirmed } from "react-icons/gi";
 import { Helmet } from 'react-helmet';
-import image1 from "../Assets/Images/buildings/landuse.PNG";
-import image2 from "../Assets/Images/buildings/development.PNG";
-import image3 from "../Assets/Images/buildings/gis.PNG";
+import image1 from "../Assets/Images/buildings/img14.PNG";
+import image2 from "../Assets/Images/buildings/img15.PNG";
+import image3 from "../Assets/Images/buildings/img16.PNG";
 
 // Data for services
 const serviceData = [

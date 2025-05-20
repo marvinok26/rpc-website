@@ -48,28 +48,31 @@ const WhyChooseUs = () => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stop observing once it's visible
-        }
-      },
-      { threshold: 0.1 } // Trigger when 10% of the component is visible
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect(); // Stop observing once it's visible
       }
-    };
-  }, []);
+    },
+    { threshold: 0.1 } // Trigger when 10% of the component is visible
+  );
 
+  // Store the current value of the ref
+  const currentRef = ref.current;
+
+  if (currentRef) {
+    observer.observe(currentRef);
+  }
+
+  return () => {
+    // Use the stored value in the cleanup
+    if (currentRef) {
+      observer.unobserve(currentRef);
+    }
+  };
+}, []);
   return (
     <section className="bg-neutral-100 px-4 py-12 font-sans" ref={ref}>
       <div className="max-w-6xl mx-auto">

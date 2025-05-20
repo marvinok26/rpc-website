@@ -1,6 +1,6 @@
 import React from 'react';
 import ImageRow from '../components/Images';
-import image1 from '../Assets/Images/buildings/building-102840_1280.jpg';
+import image1 from '../Assets/Images/buildings/img7.jpg';
 import { GiConfirmed } from 'react-icons/gi';
 import { TbWorld } from 'react-icons/tb';
 import { Link } from 'react-router-dom';

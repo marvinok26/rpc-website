@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
-import logo from '../Assets/Images/Logo/RPC_LTD_LOGO-removebg-preview.png';
+// import logo from '../Assets/Images/Logo/RPC_LTD_LOGO-removebg-preview.png';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -69,7 +69,7 @@ const Footer = () => {
             <div className="mb-6 flex flex-col items-start">
               <Link to="/" className="flex items-center space-x-2 mb-4">
                 <div className="bg-white p-2 rounded-lg shadow-md">
-                  <img src={logo} alt="Real Plan Consultants Ltd Logo" className="h-12 w-auto" />
+                  {/* <img src={logo} alt="Real Plan Consultants Ltd Logo" className="h-12 w-auto" /> */}
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">Real Plan</h3>
