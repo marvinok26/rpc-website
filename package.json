@@ -1,6 +1,6 @@
 {
   "name": "rpc-website",
-  "homepage": "https://realplan.co.ke",
+  "homepage": "http://realplan.co.ke",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,15 +21,21 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run post-build",
+    "build:analyze": "npm run build && npx webpack-bundle-analyzer build/static/js/*.js",
+    "post-build": "echo 'Build completed successfully'",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "serve -s build -l 3000"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "overrides": {
+    "launch-editor": "^2.9.0"
   },
   "browserslist": {
     "production": [
